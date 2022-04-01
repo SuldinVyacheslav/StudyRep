@@ -1,0 +1,10 @@
+C:\Users\suldi\StudyStuff\Repository\StudyRep\Geometry Project\FirstProject\obj\Debug\FirstProject.csproj.AssemblyReference.cache
+C:\Users\suldi\StudyStuff\Repository\StudyRep\Geometry Project\FirstProject\obj\Debug\FirstProject.Form1.resources
+C:\Users\suldi\StudyStuff\Repository\StudyRep\Geometry Project\FirstProject\obj\Debug\FirstProject.Properties.Resources.resources
+C:\Users\suldi\StudyStuff\Repository\StudyRep\Geometry Project\FirstProject\obj\Debug\FirstProject.csproj.GenerateResource.cache
+C:\Users\suldi\StudyStuff\Repository\StudyRep\Geometry Project\FirstProject\obj\Debug\FirstProject.csproj.CoreCompileInputs.cache
+C:\Users\suldi\StudyStuff\Repository\StudyRep\Geometry Project\FirstProject\bin\Debug\FirstProject.exe.config
+C:\Users\suldi\StudyStuff\Repository\StudyRep\Geometry Project\FirstProject\bin\Debug\FirstProject.exe
+C:\Users\suldi\StudyStuff\Repository\StudyRep\Geometry Project\FirstProject\bin\Debug\FirstProject.pdb
+C:\Users\suldi\StudyStuff\Repository\StudyRep\Geometry Project\FirstProject\obj\Debug\FirstProject.exe
+C:\Users\suldi\StudyStuff\Repository\StudyRep\Geometry Project\FirstProject\obj\Debug\FirstProject.pdb
