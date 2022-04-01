@@ -11,11 +11,5 @@ namespace FirstProject
         public Dot[] Vertex;
         public Vector[] Vectors;
         public Edge[] Edges;
-        //public Figure(Dot[] vert, Dot[,] edg)
-        //{
-        //    Vertex = vert;
-        //    Edges = edg;
-        //}
-
     }
 }

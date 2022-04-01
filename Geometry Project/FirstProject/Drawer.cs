@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace FirstProject
 {
-    public partial class Form1 : Form
+    public partial class Drawer : Form
     {
-        public Form1()
+        public Drawer()
         {
             InitializeComponent();
         }
@@ -65,14 +65,14 @@ namespace FirstProject
         private void button1_Click(object sender, EventArgs e)
         {
             if (textBox1.Text == "" || Get(textBox1) || textBox1.Text == "????") textBox1.Text = "????";
-            if (textBox2.Text == "" || Get(textBox2) || textBox2.Text == "????") textBox2.Text = "????";
-            if (textBox3.Text == "" || Get(textBox3) || textBox3.Text == "????") textBox3.Text = "????";
-            if (textBox4.Text == "" || Get(textBox4) || textBox4.Text == "????") textBox4.Text = "????";
-            if (textBox5.Text == "" || Get(textBox5) || textBox5.Text == "????") textBox5.Text = "????";
-            if (textBox6.Text == "" || Get(textBox6) || textBox6.Text == "????") textBox6.Text = "????";
-            if (textBox7.Text == "" || Get(textBox7) || textBox7.Text == "????") textBox7.Text = "????";
-            if (textBox8.Text == "" || Get(textBox8) || textBox8.Text == "????") textBox8.Text = "????";
-            if (textBox9.Text == "" || Get(textBox9) || textBox9.Text == "????") textBox9.Text = "????";
+            else if (textBox2.Text == "" || Get(textBox2) || textBox2.Text == "????") textBox2.Text = "????";
+            else if (textBox3.Text == "" || Get(textBox3) || textBox3.Text == "????") textBox3.Text = "????";
+            else if (textBox4.Text == "" || Get(textBox4) || textBox4.Text == "????") textBox4.Text = "????";
+            else if (textBox5.Text == "" || Get(textBox5) || textBox5.Text == "????") textBox5.Text = "????";
+            else if (textBox6.Text == "" || Get(textBox6) || textBox6.Text == "????") textBox6.Text = "????";
+            else if (textBox7.Text == "" || Get(textBox7) || textBox7.Text == "????") textBox7.Text = "????";
+            else if (textBox8.Text == "" || Get(textBox8) || textBox8.Text == "????") textBox8.Text = "????";
+            else if (textBox9.Text == "" || Get(textBox9) || textBox9.Text == "????") textBox9.Text = "????";
             else
             {
                 A = new Dot(Convert.ToDouble(textBox1.Text),
@@ -87,7 +87,7 @@ namespace FirstProject
 
                 if (Line.IsOnOneLine(A, B, C))
                 {
-                    comboBox1.Text = "your points on one line!";
+                    comboBox1.Text = "on one line!";
                     return;
                 }
 

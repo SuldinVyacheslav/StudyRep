@@ -1,7 +1,7 @@
 ﻿
 namespace FirstProject
 {
-    partial class Form1
+    partial class Drawer
     {
         /// <summary>
         /// Required designer variable.
@@ -214,7 +214,7 @@ namespace FirstProject
             this.label6.TabIndex = 17;
             this.label6.Text = "z";
             // 
-            // Form1
+            // Drawer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -237,8 +237,8 @@ namespace FirstProject
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.trackBar1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "Drawer";
+            this.Text = "Drawer";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();

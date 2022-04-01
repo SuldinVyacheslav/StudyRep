@@ -16,12 +16,12 @@ namespace FirstProject
             Dot B = new Dot(2, 6, 8);
             Dot C = new Dot(1, 1, 1);
 
-            Tetrahedron pyr = new Tetrahedron(A, B, C);
+            Cube c = new Cube(A, B, C);
             
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Drawer());
         }
     }
 }
