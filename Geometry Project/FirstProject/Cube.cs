@@ -15,7 +15,7 @@ namespace FirstProject
             this.Edges = new Edge[12];
 
             Vertex[0] = A;
-            Vertex[1] = B;
+            Vertex[1] = B;  
             
 
             Vector a = Vector.ByTwoDots(A, B);

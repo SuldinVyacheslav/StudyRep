@@ -19,7 +19,7 @@ namespace FirstProject
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            this.BackColor = System.Drawing.Color.White;
         }
 
         Dot A;
@@ -29,19 +29,46 @@ namespace FirstProject
         Pyramid pyramid;
         Figure cur;
         Tetrahedron tetr;
-
+        List<Label> lbl = new List<Label>();
+        List<Label> Vlbl = new List<Label>();
         int zoom = 1;
-
+        
         Graphics g;
         void Draw(Figure fig)
         {
             g = CreateGraphics();
             Dot O = new Dot(this.Size.Width / 2, this.Size.Height / 2, 0);
 
-            g.Clear(Color.Azure);
+            g.Clear(Color.White);
 
             g.DrawLine(Pens.Black, (float)O.X, 0, (float)O.X, this.Size.Height);
             g.DrawLine(Pens.Black, 0, (float)O.Y, this.Size.Width, (float)O.Y);
+
+            if (lbl.Count() != fig.Vertex.Length)
+            {
+                foreach (Label lab in lbl)
+                {
+                    lab.Size = new Size(0, 0);
+                }
+                lbl.Clear();
+                Label[] lblArr = new Label[fig.Vertex.Length];
+                for (int i = 0; i < fig.Vertex.Length; i++)
+                {
+                    lblArr[i] = new Label();
+                    lblArr[i].Location = new Point((int)(zoom * fig.Vertex[i].X + O.X), (int)(O.Y - (zoom) * fig.Vertex[i].Y));
+                    lblArr[i].Size = new Size(20, 20);
+                    lblArr[i].BackColor = Color.White;
+                    lblArr[i].Text = i.ToString();
+                    lblArr[i].Parent = this;
+                    this.Controls.Add(lblArr[i]);
+                }
+                lbl.AddRange(lblArr);
+            }
+            else
+            {
+                for (int i = 0; i < fig.Vertex.Length; i++)
+                    lbl[i].Location = new Point((int)(zoom * fig.Vertex[i].X + O.X), (int)(O.Y - (zoom) * fig.Vertex[i].Y));
+            }
 
             foreach (Edge edge in fig.Edges)
             {
@@ -50,6 +77,10 @@ namespace FirstProject
                 g.DrawLine(Pens.Red, Ap, Bp);
             }
 
+            
+            
+
+                
         }
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
@@ -64,6 +95,7 @@ namespace FirstProject
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Dot O = new Dot(this.Size.Width / 2, this.Size.Height / 2, 0);
             if (textBox1.Text == "" || Get(textBox1) || textBox1.Text == "????") textBox1.Text = "????";
             else if (textBox2.Text == "" || Get(textBox2) || textBox2.Text == "????") textBox2.Text = "????";
             else if (textBox3.Text == "" || Get(textBox3) || textBox3.Text == "????") textBox3.Text = "????";
@@ -96,24 +128,59 @@ namespace FirstProject
                     cube = new Cube(A, B, C);
                     Draw(cube);
                     cur = cube;
+
+                    CreateLabels(cube);
+                    
+                    
                 }
                 else if (comboBox1.Text == "Pyramid")
                 {
                     pyramid = new Pyramid(A, B, C);
                     Draw(pyramid);
                     cur = pyramid;
+
+                    CreateLabels(pyramid);
                 }
                 else if (comboBox1.Text == "Tetrahedron")
                 {
                     tetr = new Tetrahedron(A, B, C);
                     Draw(tetr);
                     cur = tetr;
+                    CreateLabels(tetr);
                 }
                 else comboBox1.Text = "Fill this";
 
             }
 
         }
+
+        private void CreateLabels(Figure fig)
+        {
+
+            if (Vlbl.Count() != fig.Vertex.Length)
+            {
+                foreach (Label lab in Vlbl)
+                {
+                    lab.Size = new Size(0, 0);
+                }
+                Vlbl.Clear();
+                Label[] lblArr = new Label[fig.Vertex.Length];
+                for (int i = 0; i < fig.Vertex.Length; i++)
+                {
+                    lblArr[i] = new Label();
+                    lblArr[i].Location = new Point(0, 500 + i * 25);
+                    lblArr[i].Size = new Size(200, 20);
+                    lblArr[i].Text = i.ToString() + $": ( {Math.Round(fig.Vertex[i].X, 3)}, {Math.Round(fig.Vertex[i].Y, 3)}, {Math.Round(fig.Vertex[i].Z, 3)})";
+                    lblArr[i].Parent = this;
+                    this.Controls.Add(lblArr[i]);
+                }
+                Vlbl.AddRange(lblArr);
+            }
+            
+
+            
+        }
+
         public bool Get(TextBox box)
         {
             double answer;
