@@ -10,6 +10,5 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
-      - run: |
-              cd Tasks
-              dotnet test
+      - run: ls /Tasks/Tasks
+      - run: dotnet test /Tasks/Tasks
