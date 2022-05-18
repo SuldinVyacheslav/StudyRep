@@ -10,6 +10,6 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
-      - run: cd StudyRep/Tasks
+      - run: cd Tasks/UnitTests/UnitTests.csproj
       - run: pwd
       - run: dotnet test
