@@ -58,6 +58,14 @@ namespace UnitTests
         }
 
         [Test]
+        public void LZWTest()
+        {
+            LZW lzw = new LZW("abacabadabacabae".ToCharArray());
+            string asd = lzw.Encode();
+            Assert.AreEqual("9798979925697100260259257101", asd);
+        }
+
+        [Test]
         public void HuffmanTest()
         {
             string messege = "bbbeeee  oopp!r";
@@ -208,13 +216,26 @@ namespace UnitTests
             int asd = ek.GetMaxFlow(0, 3);
             Assert.AreEqual(20, asd);
         }
+
         [Test]
-        public void LZWTest()
+        public void ScalingFlowTest()
         {
-            LZW lzw = new LZW("abacabadabacabae".ToCharArray());
-            string asd = lzw.Encode();
-            Assert.AreEqual("9798979925697100260259257101", asd);
+            
+            ScalingFlow sk = new ScalingFlow(6);
+            sk.AddEdge(5, 0, 10);
+            sk.AddEdge(5, 1, 10);
+            sk.AddEdge(2, 4, 10);
+            sk.AddEdge(3, 4, 10);
+            sk.AddEdge(0, 1, 2);
+            sk.AddEdge(0, 2, 4);
+            sk.AddEdge(0, 3, 8);
+            sk.AddEdge(1, 3, 9);
+            sk.AddEdge(3, 2, 6);
+            int asd = sk.GetMaxFlow(5, 4);
+            Assert.AreEqual(16, asd);
         }
+
+       
     }
 
 }
