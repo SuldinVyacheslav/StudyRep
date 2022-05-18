@@ -9,7 +9,7 @@ jobs:
     name: Unit Testing
     runs-on: ubuntu-latest
     steps:
-      - run: |
+      - run:
               cd Tasks
               cd Tasks
               dotnet test
