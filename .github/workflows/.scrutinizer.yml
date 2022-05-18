@@ -10,6 +10,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
-      - run: cd Tasks/UnitTests
+      - run: pwd
+      - run: cd Tasks\UnitTests
       - run: pwd
       - run: dotnet test ~/UnitTests.csproj
