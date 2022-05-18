@@ -9,7 +9,6 @@ namespace GraphsTask2
 {
     public class Prim
     {
-
         public Graph GetSpanningTree(Graph core)
         {
             List<Vertex> U = new List<Vertex>() { core.Vertexes.First() };

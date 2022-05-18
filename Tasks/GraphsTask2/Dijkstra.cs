@@ -15,15 +15,15 @@ namespace GraphsTask2
 
             List<Vertex> marked = new List<Vertex>() {};
 
-            Dictionary<Vertex, int> D = new Dictionary<Vertex, int>();
+            Dictionary<Vertex, int> dict = new Dictionary<Vertex, int>();
 
             foreach (var vert in graph.Vertexes)
             {
-                D.Add(vert, int.MaxValue);
+                dict.Add(vert, int.MaxValue);
             }
 
             Vertex key = vertex;
-            D[key] = 0;
+            dict[key] = 0;
 
             while (marked.Count != graph.Vertexes.Count)
             {
@@ -35,11 +35,11 @@ namespace GraphsTask2
 
                     if (edge.Y == key)
                     {
-                        D[edge.X] = Math.Min(edge.Value + D[edge.Y], D[edge.X]);
+                        dict[edge.X] = Math.Min(edge.Value + dict[edge.Y], dict[edge.X]);
                     }
                     else
                     {
-                        D[edge.Y] = Math.Min(edge.Value + D[edge.X], D[edge.Y]);
+                        dict[edge.Y] = Math.Min(edge.Value + dict[edge.X], dict[edge.Y]);
                     }
 
                 }
@@ -47,7 +47,7 @@ namespace GraphsTask2
                 key = minEdge.X == key? minEdge.Y : minEdge.X;
             }
 
-            return D;
+            return dict;
         }
     }
 }

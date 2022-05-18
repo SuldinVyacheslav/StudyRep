@@ -13,7 +13,6 @@ namespace GraphsTask2
         {
             Graph spanningTree = new Graph(graph.Vertexes.ToList());
 
-
             List<List<Vertex>> components = new List<List<Vertex>>();
 
             foreach (Vertex vertex in graph.Vertexes)

@@ -9,66 +9,72 @@ namespace GraphsTask3
 {
     public class Dinic
     {
-        List<List<OrEdge>> G;
-        int V;
-        List<int> level;
-        List<int> iter;
+        public List<List<OrEdge>> GraphList;
+        public int VertexNum;
+        public List<int> Level, Iteration;
 
         public Dinic(int vertexes)
         {
-            V = vertexes;
-            G = new List<List<OrEdge>>();
-            level = new List<int>();
-            iter = new List<int>();
-            for (int i = 0; i < V; ++i)
+            VertexNum = vertexes;
+            GraphList = new List<List<OrEdge>>();
+            Level = new List<int>();
+            Iteration = new List<int>();
+            for (int i = 0; i < VertexNum; ++i)
             {
-                G.Add(new List<OrEdge>());
-                level.Add(0);
-                iter.Add(0);
+                GraphList.Add(new List<OrEdge>());
+                Level.Add(0);
+                Iteration.Add(0);
             }
         }
 
         public void AddEdge(int from, int to, int cap)
         {
-            G[from].Add(new OrEdge(to, cap, G[to].Count)); // G[to].Count is index of reverse edge in to list
-            G[to].Add(new OrEdge(from, 0, G[from].Count - 1)); // G[from].Count - 1 is index of reverse edge in from list
+            GraphList[from].Add(new OrEdge(to, cap, GraphList[to].Count));
+            GraphList[to].Add(new OrEdge(from, 0, GraphList[from].Count - 1));
         }
 
         public int MaxFlow(int s, int t)
         {
             int flow = 0;
-            while (true) // O(V**2 * E)
+            while (true)
             {
-                BFS(s); // O(E)
-                if (level[t] < 0)
+                BFS(s);
+                if (Level[t] < 0)
+                {
                     return flow;
-                for (int i = 0; i < V; ++i)
-                    iter[i] = 0;
-                var f = DFS(s, t, int.MaxValue); // O(V + E)
-                while (f > 0) // O(VE)
+                }
+                for (int i = 0; i < VertexNum; ++i)
+                {
+                    Iteration[i] = 0;
+                }
+                var f = DFS(s, t, int.MaxValue);
+                while (f > 0) 
                 {
                     flow += f;
-                    f = DFS(s, t, int.MaxValue); // O(E)
+                    f = DFS(s, t, int.MaxValue);
                 }
             }
         }
         void BFS(int s)
         {
-            for (int i = 0; i < V; ++i)
-                level[i] = -1;
-            level[s] = 0;
+            for (int i = 0; i < VertexNum; ++i)
+            {
+                Level[i] = -1;
+            }
+                
+            Level[s] = 0;
             var que = new Queue<int>();
             que.Enqueue(s);
 
             while (que.Count != 0)
             {
                 var v = que.Dequeue();
-                for (int i = 0; i < G[v].Count; i++)
+                for (int i = 0; i < GraphList[v].Count; i++)
                 {
-                    var e = G[v][i];
-                    if (e.Capacity > 0 && level[e.To] < 0)
+                    var e = GraphList[v][i];
+                    if (e.Capacity > 0 && Level[e.To] < 0)
                     {
-                        level[e.To] = level[v] + 1;
+                        Level[e.To] = Level[v] + 1;
                         que.Enqueue(e.To);
                     }
 
@@ -79,18 +85,21 @@ namespace GraphsTask3
         }
         int DFS(int v, int t, int f)
         {
-            if (v == t) return f;
-            for (int i = iter[v]; i < G[v].Count; i++)
+            if (v == t) 
             {
-                iter[v] = i;
-                var e = G[v][i];
-                if (e.Capacity > 0 && level[v] < level[e.To])
+                return f;
+            }
+            for (int i = Iteration[v]; i < GraphList[v].Count; i++)
+            {
+                Iteration[v] = i;
+                var e = GraphList[v][i];
+                if (e.Capacity > 0 && Level[v] < Level[e.To])
                 {
                     var d = DFS(e.To, t, Math.Min(f, e.Capacity));
                     if (d > 0)
                     {
                         e.Capacity -= d;
-                        G[e.To][e.Opposite].Capacity += d;
+                        GraphList[e.To][e.Opposite].Capacity += d;
                         return d;
                     }
                 }

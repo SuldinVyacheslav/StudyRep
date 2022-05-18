@@ -10,8 +10,6 @@ namespace GraphsTask3
 
     public class EdmondKarp
     {
-
-
         static List<int>[] graph;
         static int[] parentsList;
         static List<OrEdge> edges = new List<OrEdge>();
@@ -27,23 +25,23 @@ namespace GraphsTask3
         }
         public void AddEdge(int from, int to, int flow)
         {
-            OrEdge from_edge = new OrEdge(from, to, flow, 0);
-            OrEdge to_edge = new OrEdge(to, from, 0, 0);
+            OrEdge fromEdge = new OrEdge(from, to, flow, 0);
+            OrEdge toEdge = new OrEdge(to, from, 0, 0);
             graph[from].Add(edges.Count);
-            edges.Add(from_edge);
+            edges.Add(fromEdge);
             graph[to].Add(edges.Count);
-            edges.Add(to_edge);
+            edges.Add(toEdge);
         }
         public void BFS(int startNode, int endNode)
         {
             parentsList = Enumerable.Repeat((int)-1, graph.Length).ToArray(); 
 
-            Queue<int> q = new Queue<int>(); 
-            q.Enqueue(startNode);
+            Queue<int> queue = new Queue<int>(); 
+            queue.Enqueue(startNode);
 
-            while (q.Count != 0)
+            while (queue.Count != 0)
             {
-                int currentNode = q.Dequeue();
+                int currentNode = queue.Dequeue();
 
                 for (int i = 0; i < graph[currentNode].Count; i++) 
                 {
@@ -54,7 +52,7 @@ namespace GraphsTask3
                         parentsList[e.To] = idx;
                         if (e.To == endNode) 
                             return;
-                        q.Enqueue(e.To);
+                        queue.Enqueue(e.To);
                     }
                 }
             }

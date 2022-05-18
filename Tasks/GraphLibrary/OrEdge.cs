@@ -6,10 +6,6 @@ using System.Threading.Tasks;
 
 namespace GraphLibrary
 {
-    public class OrGraph
-    {
-
-    }
     public class OrEdge
     {
         public int To;

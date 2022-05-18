@@ -16,16 +16,14 @@ namespace GraphsTask3
             for (int i = 0; i < residualNet.Length; ++i)
                 visited[i] = false;
 
-            
-            List<int> queue = new List<int>();
-            queue.Add(s);
+            Queue<int> queue = new Queue<int>();
+            queue.Enqueue(s);
             visited[s] = true;
             path[s] = -1;
 
             while (queue.Count != 0)
             {
-                int u = queue[0];
-                queue.RemoveAt(0);
+                int u = queue.Dequeue();
 
                 for (int v = 0; v < GraphLenght; v++)
                 {
@@ -36,7 +34,7 @@ namespace GraphsTask3
                             path[v] = u;
                             return true;
                         }
-                        queue.Add(v);
+                        queue.Enqueue(v);
                         path[v] = u;
                         visited[v] = true;
                     }

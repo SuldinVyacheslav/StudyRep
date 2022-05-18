@@ -8,45 +8,45 @@ namespace EncodingAlgorithmLib
 {
     public class ShannonFano
     {
-        public char[] message;
+        public char[] Message;
 
         public Dictionary<char, string> Dict;
-        public ShannonFano(char[] messege)
+        public ShannonFano(char[] message)
         {
             Dict = new Dictionary<char, string>();
-            this.message = messege;
+            this.Message = message;
         }
 
         public char[] Encode()
         {
-            CharInfo[] prob = GetMessage(message);
-            Array.Sort(prob, (CharInfo x, CharInfo y) => (x.Value >= y.Value ? (x.Value > y.Value ? -1 : 0) : 1));
-            foreach (var asd in prob)
+            CharInfo[] sumInfo = GetMessage(Message);
+            Array.Sort(sumInfo, (CharInfo x, CharInfo y) => (x.Value >= y.Value ? (x.Value > y.Value ? -1 : 0) : 1));
+            foreach (CharInfo info in sumInfo)
             {
-                Console.WriteLine($"{asd.Sign} --- {asd.Value}");
+                Console.WriteLine($"{info.Sign} --- {info.Value}");
             }
 
-            Tree root = new Tree(prob, "");
+            Tree root = new Tree(sumInfo, "");
 
             foreach (var search in root.Value)
             {
                 Dict.Add(search.Sign, root.Search(search));
             }
 
-            string result = "";
-            foreach (char sign in message)
+            string result = string.Empty;
+            foreach (char sign in Message)
             {
                 result += Dict[sign];
             }
 
             return result.ToCharArray();
         }
-        public CharInfo[] GetMessage(char[] messege)
+        public CharInfo[] GetMessage(char[] message)
         {
 
             Dictionary<char, int> dict = new Dictionary<char, int>();
             List<CharInfo> list = new List<CharInfo>();
-            foreach (char sign in messege)
+            foreach (char sign in message)
             {
                 if (dict.Keys.Contains(sign))
                 {
@@ -59,7 +59,7 @@ namespace EncodingAlgorithmLib
             }
             foreach (char key in dict.Keys)
             {
-                list.Add(new CharInfo(key, dict[key] / (float)messege.Length));
+                list.Add(new CharInfo(key, dict[key] / (float)message.Length));
             }
             return list.ToArray();
         }

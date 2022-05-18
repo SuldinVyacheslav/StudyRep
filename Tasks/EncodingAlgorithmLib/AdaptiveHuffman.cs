@@ -12,10 +12,10 @@ namespace EncodingAlgorithmLib
         public char[] message;
 
         Dictionary<char, string> dict;
-        public AdaptiveHuffman(char[] messege)
+        public AdaptiveHuffman(char[] message)
         {
             dict = new Dictionary<char, string>();
-            this.message = messege;
+            this.message = message;
         }
 
         public string Encode()

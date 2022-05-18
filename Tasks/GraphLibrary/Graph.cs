@@ -48,31 +48,5 @@ namespace GraphLibrary
 
         }
     }
-    public class Vertex
-    {
-        public string Name;
-        
-        public Vertex(string name)
-        {
-            Name = name;
-        }
-
-        public bool IsMarked;
-    }
-
-    public class Edge
-    {
-        public Vertex X;
-        public Vertex Y;
-
-        public int Value;
-
-        public Edge(int value, Vertex x, Vertex y)
-        {
-            X = x; Y = y;
-            Value = value; 
-        }
-    }
-
     
 }

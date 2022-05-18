@@ -60,11 +60,11 @@ namespace EncodingAlgorithmLib
 
             return Dict;
         }
-        public List<NotNode> GetStartNodes(char[] messege)
+        public List<Node> GetStartNodes(char[] messege)
         {
 
             Dictionary<char, int> dict = new Dictionary<char, int>();
-            List<NotNode> list = new List<NotNode>();
+            List<Node> list = new List<Node>();
             foreach (char sign in messege)
             {
                 if (dict.Keys.Contains(sign))
@@ -78,7 +78,7 @@ namespace EncodingAlgorithmLib
             }
             foreach (char key in dict.Keys)
             {
-                list.Add(new NotNode(new List<Char>() { new Char(key, dict[key]) }));
+                list.Add(new Node(new List<Char>() { new Char(key, dict[key]) }));
             }
             return list;
         }
@@ -97,15 +97,15 @@ namespace EncodingAlgorithmLib
 
     public class Queue
     {
-        public List<NotNode> Elements;
+        public List<Node> Elements;
 
-        public Queue(List<NotNode> elements)
+        public Queue(List<Node> elements)
         {
             Elements = elements;
-            Elements.Sort((NotNode x, NotNode y) => (x.Value >= y.Value ? (x.Value > y.Value ? -1 : 0) : 1));
+            Elements.Sort((Node x, Node y) => (x.Value >= y.Value ? (x.Value > y.Value ? -1 : 0) : 1));
         }
 
-        public void Add(NotNode node)
+        public void Add(Node node)
         {
             Elements.Add(node);
 
@@ -122,7 +122,7 @@ namespace EncodingAlgorithmLib
 
         public void Merge()
         {
-            NotNode newNode = new NotNode(Elements[^1].Chars.Concat(Elements[^2].Chars).ToList());
+            Node newNode = new Node(Elements[^1].Chars.Concat(Elements[^2].Chars).ToList());
             newNode.Zero = Elements.Last();
             Elements.Remove(Elements.Last());
             newNode.One = Elements.Last();
@@ -131,15 +131,15 @@ namespace EncodingAlgorithmLib
         }
 
     }
-    public class NotNode
+    public class Node
     {
         public int Value = 0;
 
         public List<Char> Chars;
 
-        public NotNode One;
-        public NotNode Zero;
-        public NotNode(List<Char> list)
+        public Node One;
+        public Node Zero;
+        public Node(List<Char> list)
         {
             Chars = list;
             foreach (var ch in list)
