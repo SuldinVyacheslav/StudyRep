@@ -1,0 +1,15 @@
+C:\Users\suldi\StudyStuff\Repository\StudyRep\Tasks\GraphsTask2\bin\Debug\net5.0\GraphsTask2.deps.json
+C:\Users\suldi\StudyStuff\Repository\StudyRep\Tasks\GraphsTask2\bin\Debug\net5.0\GraphsTask2.dll
+C:\Users\suldi\StudyStuff\Repository\StudyRep\Tasks\GraphsTask2\bin\Debug\net5.0\ref\GraphsTask2.dll
+C:\Users\suldi\StudyStuff\Repository\StudyRep\Tasks\GraphsTask2\bin\Debug\net5.0\GraphsTask2.pdb
+C:\Users\suldi\StudyStuff\Repository\StudyRep\Tasks\GraphsTask2\obj\Debug\net5.0\GraphsTask2.csproj.AssemblyReference.cache
+C:\Users\suldi\StudyStuff\Repository\StudyRep\Tasks\GraphsTask2\obj\Debug\net5.0\GraphsTask2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\suldi\StudyStuff\Repository\StudyRep\Tasks\GraphsTask2\obj\Debug\net5.0\GraphsTask2.AssemblyInfoInputs.cache
+C:\Users\suldi\StudyStuff\Repository\StudyRep\Tasks\GraphsTask2\obj\Debug\net5.0\GraphsTask2.AssemblyInfo.cs
+C:\Users\suldi\StudyStuff\Repository\StudyRep\Tasks\GraphsTask2\obj\Debug\net5.0\GraphsTask2.csproj.CoreCompileInputs.cache
+C:\Users\suldi\StudyStuff\Repository\StudyRep\Tasks\GraphsTask2\obj\Debug\net5.0\GraphsTask2.dll
+C:\Users\suldi\StudyStuff\Repository\StudyRep\Tasks\GraphsTask2\obj\Debug\net5.0\ref\GraphsTask2.dll
+C:\Users\suldi\StudyStuff\Repository\StudyRep\Tasks\GraphsTask2\obj\Debug\net5.0\GraphsTask2.pdb
+C:\Users\suldi\StudyStuff\Repository\StudyRep\Tasks\GraphsTask2\bin\Debug\net5.0\GraphLibrary.dll
+C:\Users\suldi\StudyStuff\Repository\StudyRep\Tasks\GraphsTask2\bin\Debug\net5.0\GraphLibrary.pdb
+C:\Users\suldi\StudyStuff\Repository\StudyRep\Tasks\GraphsTask2\obj\Debug\net5.0\GraphsTask2.csproj.CopyComplete

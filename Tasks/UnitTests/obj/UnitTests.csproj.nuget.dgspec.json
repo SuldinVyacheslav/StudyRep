@@ -1,0 +1,337 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\suldi\\StudyStuff\\Repository\\StudyRep\\Tasks\\UnitTests\\UnitTests.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\suldi\\StudyStuff\\Repository\\StudyRep\\Tasks\\EncodingAlgorithmLib\\EncodingAlgorithmLib.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\suldi\\StudyStuff\\Repository\\StudyRep\\Tasks\\EncodingAlgorithmLib\\EncodingAlgorithmLib.csproj",
+        "projectName": "EncodingAlgorithmLib",
+        "projectPath": "C:\\Users\\suldi\\StudyStuff\\Repository\\StudyRep\\Tasks\\EncodingAlgorithmLib\\EncodingAlgorithmLib.csproj",
+        "packagesPath": "C:\\Users\\suldi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\suldi\\StudyStuff\\Repository\\StudyRep\\Tasks\\EncodingAlgorithmLib\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\suldi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\suldi\\StudyStuff\\Repository\\StudyRep\\Tasks\\GraphLibrary\\GraphLibrary.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\suldi\\StudyStuff\\Repository\\StudyRep\\Tasks\\GraphLibrary\\GraphLibrary.csproj",
+        "projectName": "GraphLibrary",
+        "projectPath": "C:\\Users\\suldi\\StudyStuff\\Repository\\StudyRep\\Tasks\\GraphLibrary\\GraphLibrary.csproj",
+        "packagesPath": "C:\\Users\\suldi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\suldi\\StudyStuff\\Repository\\StudyRep\\Tasks\\GraphLibrary\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\suldi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\suldi\\StudyStuff\\Repository\\StudyRep\\Tasks\\GraphsTask2\\GraphsTask2.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\suldi\\StudyStuff\\Repository\\StudyRep\\Tasks\\GraphsTask2\\GraphsTask2.csproj",
+        "projectName": "GraphsTask2",
+        "projectPath": "C:\\Users\\suldi\\StudyStuff\\Repository\\StudyRep\\Tasks\\GraphsTask2\\GraphsTask2.csproj",
+        "packagesPath": "C:\\Users\\suldi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\suldi\\StudyStuff\\Repository\\StudyRep\\Tasks\\GraphsTask2\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\suldi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Users\\suldi\\StudyStuff\\Repository\\StudyRep\\Tasks\\GraphLibrary\\GraphLibrary.csproj": {
+                "projectPath": "C:\\Users\\suldi\\StudyStuff\\Repository\\StudyRep\\Tasks\\GraphLibrary\\GraphLibrary.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\suldi\\StudyStuff\\Repository\\StudyRep\\Tasks\\GraphsTask3\\GraphsTask3.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\suldi\\StudyStuff\\Repository\\StudyRep\\Tasks\\GraphsTask3\\GraphsTask3.csproj",
+        "projectName": "GraphsTask3",
+        "projectPath": "C:\\Users\\suldi\\StudyStuff\\Repository\\StudyRep\\Tasks\\GraphsTask3\\GraphsTask3.csproj",
+        "packagesPath": "C:\\Users\\suldi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\suldi\\StudyStuff\\Repository\\StudyRep\\Tasks\\GraphsTask3\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\suldi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Users\\suldi\\StudyStuff\\Repository\\StudyRep\\Tasks\\GraphLibrary\\GraphLibrary.csproj": {
+                "projectPath": "C:\\Users\\suldi\\StudyStuff\\Repository\\StudyRep\\Tasks\\GraphLibrary\\GraphLibrary.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\suldi\\StudyStuff\\Repository\\StudyRep\\Tasks\\UnitTests\\UnitTests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\suldi\\StudyStuff\\Repository\\StudyRep\\Tasks\\UnitTests\\UnitTests.csproj",
+        "projectName": "UnitTests",
+        "projectPath": "C:\\Users\\suldi\\StudyStuff\\Repository\\StudyRep\\Tasks\\UnitTests\\UnitTests.csproj",
+        "packagesPath": "C:\\Users\\suldi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\suldi\\StudyStuff\\Repository\\StudyRep\\Tasks\\UnitTests\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\suldi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Users\\suldi\\StudyStuff\\Repository\\StudyRep\\Tasks\\EncodingAlgorithmLib\\EncodingAlgorithmLib.csproj": {
+                "projectPath": "C:\\Users\\suldi\\StudyStuff\\Repository\\StudyRep\\Tasks\\EncodingAlgorithmLib\\EncodingAlgorithmLib.csproj"
+              },
+              "C:\\Users\\suldi\\StudyStuff\\Repository\\StudyRep\\Tasks\\GraphLibrary\\GraphLibrary.csproj": {
+                "projectPath": "C:\\Users\\suldi\\StudyStuff\\Repository\\StudyRep\\Tasks\\GraphLibrary\\GraphLibrary.csproj"
+              },
+              "C:\\Users\\suldi\\StudyStuff\\Repository\\StudyRep\\Tasks\\GraphsTask2\\GraphsTask2.csproj": {
+                "projectPath": "C:\\Users\\suldi\\StudyStuff\\Repository\\StudyRep\\Tasks\\GraphsTask2\\GraphsTask2.csproj"
+              },
+              "C:\\Users\\suldi\\StudyStuff\\Repository\\StudyRep\\Tasks\\GraphsTask3\\GraphsTask3.csproj": {
+                "projectPath": "C:\\Users\\suldi\\StudyStuff\\Repository\\StudyRep\\Tasks\\GraphsTask3\\GraphsTask3.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[16.9.4, )"
+            },
+            "NUnit": {
+              "target": "Package",
+              "version": "[3.13.1, )"
+            },
+            "NUnit3TestAdapter": {
+              "target": "Package",
+              "version": "[3.17.0, )"
+            },
+            "coverlet.collector": {
+              "target": "Package",
+              "version": "[3.0.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

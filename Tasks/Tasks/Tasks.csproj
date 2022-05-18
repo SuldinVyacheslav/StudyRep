@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EncodingAlgorithmLib\EncodingAlgorithmLib.csproj" />
+    <ProjectReference Include="..\GraphLibrary\GraphLibrary.csproj" />
+    <ProjectReference Include="..\GraphsTask2\GraphsTask2.csproj" />
+    <ProjectReference Include="..\GraphsTask3\GraphsTask3.csproj" />
+  </ItemGroup>
+
+</Project>

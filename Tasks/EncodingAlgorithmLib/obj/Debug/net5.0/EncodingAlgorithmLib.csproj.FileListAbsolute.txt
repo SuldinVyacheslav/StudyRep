@@ -1,0 +1,12 @@
+C:\Users\suldi\StudyStuff\Repository\StudyRep\Tasks\EncodingAlgorithmLib\bin\Debug\net5.0\EncodingAlgorithmLib.deps.json
+C:\Users\suldi\StudyStuff\Repository\StudyRep\Tasks\EncodingAlgorithmLib\bin\Debug\net5.0\EncodingAlgorithmLib.dll
+C:\Users\suldi\StudyStuff\Repository\StudyRep\Tasks\EncodingAlgorithmLib\bin\Debug\net5.0\ref\EncodingAlgorithmLib.dll
+C:\Users\suldi\StudyStuff\Repository\StudyRep\Tasks\EncodingAlgorithmLib\bin\Debug\net5.0\EncodingAlgorithmLib.pdb
+C:\Users\suldi\StudyStuff\Repository\StudyRep\Tasks\EncodingAlgorithmLib\obj\Debug\net5.0\EncodingAlgorithmLib.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\suldi\StudyStuff\Repository\StudyRep\Tasks\EncodingAlgorithmLib\obj\Debug\net5.0\EncodingAlgorithmLib.AssemblyInfoInputs.cache
+C:\Users\suldi\StudyStuff\Repository\StudyRep\Tasks\EncodingAlgorithmLib\obj\Debug\net5.0\EncodingAlgorithmLib.AssemblyInfo.cs
+C:\Users\suldi\StudyStuff\Repository\StudyRep\Tasks\EncodingAlgorithmLib\obj\Debug\net5.0\EncodingAlgorithmLib.csproj.CoreCompileInputs.cache
+C:\Users\suldi\StudyStuff\Repository\StudyRep\Tasks\EncodingAlgorithmLib\obj\Debug\net5.0\EncodingAlgorithmLib.dll
+C:\Users\suldi\StudyStuff\Repository\StudyRep\Tasks\EncodingAlgorithmLib\obj\Debug\net5.0\ref\EncodingAlgorithmLib.dll
+C:\Users\suldi\StudyStuff\Repository\StudyRep\Tasks\EncodingAlgorithmLib\obj\Debug\net5.0\EncodingAlgorithmLib.pdb
+C:\Users\suldi\StudyStuff\Repository\StudyRep\Tasks\EncodingAlgorithmLib\obj\Debug\net5.0\EncodingAlgorithmLib.csproj.AssemblyReference.cache

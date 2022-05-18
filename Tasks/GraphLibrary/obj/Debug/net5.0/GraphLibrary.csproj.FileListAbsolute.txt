@@ -1,0 +1,12 @@
+C:\Users\suldi\StudyStuff\Repository\StudyRep\Tasks\GraphLibrary\bin\Debug\net5.0\GraphLibrary.deps.json
+C:\Users\suldi\StudyStuff\Repository\StudyRep\Tasks\GraphLibrary\bin\Debug\net5.0\GraphLibrary.dll
+C:\Users\suldi\StudyStuff\Repository\StudyRep\Tasks\GraphLibrary\bin\Debug\net5.0\ref\GraphLibrary.dll
+C:\Users\suldi\StudyStuff\Repository\StudyRep\Tasks\GraphLibrary\bin\Debug\net5.0\GraphLibrary.pdb
+C:\Users\suldi\StudyStuff\Repository\StudyRep\Tasks\GraphLibrary\obj\Debug\net5.0\GraphLibrary.csproj.AssemblyReference.cache
+C:\Users\suldi\StudyStuff\Repository\StudyRep\Tasks\GraphLibrary\obj\Debug\net5.0\GraphLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\suldi\StudyStuff\Repository\StudyRep\Tasks\GraphLibrary\obj\Debug\net5.0\GraphLibrary.AssemblyInfoInputs.cache
+C:\Users\suldi\StudyStuff\Repository\StudyRep\Tasks\GraphLibrary\obj\Debug\net5.0\GraphLibrary.AssemblyInfo.cs
+C:\Users\suldi\StudyStuff\Repository\StudyRep\Tasks\GraphLibrary\obj\Debug\net5.0\GraphLibrary.csproj.CoreCompileInputs.cache
+C:\Users\suldi\StudyStuff\Repository\StudyRep\Tasks\GraphLibrary\obj\Debug\net5.0\GraphLibrary.dll
+C:\Users\suldi\StudyStuff\Repository\StudyRep\Tasks\GraphLibrary\obj\Debug\net5.0\ref\GraphLibrary.dll
+C:\Users\suldi\StudyStuff\Repository\StudyRep\Tasks\GraphLibrary\obj\Debug\net5.0\GraphLibrary.pdb
