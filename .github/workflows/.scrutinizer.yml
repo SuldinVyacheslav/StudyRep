@@ -9,8 +9,7 @@ jobs:
     name: Unit Testing
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - run: ls
-      - run: cd Tasks
-      - run: ls
-      - run: dotnet test
+      - run: |
+              cd Tasks
+              cd Tasks
+              dotnet test
