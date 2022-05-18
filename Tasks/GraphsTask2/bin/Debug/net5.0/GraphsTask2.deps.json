@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "GraphsTask2/1.0.0": {
+        "dependencies": {
+          "GraphLibrary": "1.0.0"
+        },
+        "runtime": {
+          "GraphsTask2.dll": {}
+        }
+      },
+      "GraphLibrary/1.0.0": {
+        "runtime": {
+          "GraphLibrary.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "GraphsTask2/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GraphLibrary/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

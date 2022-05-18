@@ -1,0 +1,75 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "Tasks/1.0.0": {
+        "dependencies": {
+          "EncodingAlgorithmLib": "1.0.0",
+          "GraphLibrary": "1.0.0",
+          "GraphsTask2": "1.0.0",
+          "GraphsTask3": "1.0.0"
+        },
+        "runtime": {
+          "Tasks.dll": {}
+        }
+      },
+      "EncodingAlgorithmLib/1.0.0": {
+        "runtime": {
+          "EncodingAlgorithmLib.dll": {}
+        }
+      },
+      "GraphLibrary/1.0.0": {
+        "runtime": {
+          "GraphLibrary.dll": {}
+        }
+      },
+      "GraphsTask2/1.0.0": {
+        "dependencies": {
+          "GraphLibrary": "1.0.0"
+        },
+        "runtime": {
+          "GraphsTask2.dll": {}
+        }
+      },
+      "GraphsTask3/1.0.0": {
+        "dependencies": {
+          "GraphLibrary": "1.0.0"
+        },
+        "runtime": {
+          "GraphsTask3.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Tasks/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "EncodingAlgorithmLib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GraphLibrary/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GraphsTask2/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GraphsTask3/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
