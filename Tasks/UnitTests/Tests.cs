@@ -151,6 +151,64 @@ namespace UnitTests
         }
 
         [Test]
+        public void BottleneckTest()
+        {
+            Vertex A = new Vertex("A");
+            Vertex B = new Vertex("B");
+            Vertex C = new Vertex("C");
+            Vertex D = new Vertex("D");
+            Vertex E = new Vertex("E");
+            Vertex F = new Vertex("F");
+            Vertex G = new Vertex("G");
+            Edge AB = new Edge(7, A, B);
+            Edge BC = new Edge(8, B, C);
+            Edge AD = new Edge(5, A, D);
+            Edge BE = new Edge(7, B, E);
+            Edge BD = new Edge(9, B, D);
+            Edge DE = new Edge(15, D, E);
+            Edge DF = new Edge(6, D, F);
+            Edge GF = new Edge(11, F, G);
+            Edge FE = new Edge(8, E, F);
+            Edge CE = new Edge(5, C, E);
+            Edge GE = new Edge(7, G, E);
+            List<Edge> list = new List<Edge>() {
+                AB, BC, AD, BE, BD, DE, DF, GF, FE, CE, GE
+            };
+            List<Edge> result = new List<Edge>() {
+                AD, CE, DF, AB, BE, GE
+            };
+            Graph gr = new Graph(list);
+
+            Bottleneck mbn = new Bottleneck();
+
+
+            Graph test0 = mbn.GetSpanningTree(gr);
+            Assert.AreEqual(result.Count, test0.Edges.Count);
+            for (int i = 0; i < result.Count; i++)
+            {
+                Assert.AreEqual(result[i].Value, test0.Edges[i].Value);
+                Assert.AreEqual(result[i].X, test0.Edges[i].X);
+                Assert.AreEqual(result[i].Y, test0.Edges[i].Y);
+            }
+
+            Graph test1 = mbn.GetSpanningTree(new Graph(new List<Edge>() { AB }));
+            Assert.AreEqual(1, test1.Edges.Count);
+            Assert.AreEqual(AB.Value, test1.Edges.First().Value);
+            Assert.AreEqual(AB.X, test1.Edges.First().X);
+            Assert.AreEqual(AB.Y, test1.Edges.First().Y);
+
+            Graph test2 = mbn.GetSpanningTree(new Graph(new List<Edge>()));
+            Assert.AreEqual(0, test2.Edges.Count);
+
+            Graph test3 = mbn.GetSpanningTree(new Graph(new List<Vertex>()));
+            Assert.AreEqual(0, test3.Edges.Count);
+
+            Graph test4 = mbn.GetSpanningTree(new Graph(new List<Vertex>() { A } ));
+            Assert.AreEqual(0, test4.Edges.Count);
+            Assert.AreEqual(1, test4.Vertexes.Count);
+        }
+
+        [Test]
         public void Dijkstra()
         {
             Vertex A = new Vertex("A");
