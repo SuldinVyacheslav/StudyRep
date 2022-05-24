@@ -9,73 +9,73 @@ namespace GraphsTask3
 {
     public class Dinic
     {
-        public List<List<OrEdge>> GraphList;
-        public int VertexNum;
+        public List<VertexNeighborInfo> GraphList;
         public List<int> Level, Iteration;
 
         public Dinic(int vertexes)
         {
-            VertexNum = vertexes;
-            GraphList = new List<List<OrEdge>>();
+            GraphList = new List<VertexNeighborInfo>();
             Level = new List<int>();
             Iteration = new List<int>();
-            for (int i = 0; i < VertexNum; ++i)
+            for (int i = default; i < vertexes; ++i)
             {
-                GraphList.Add(new List<OrEdge>());
-                Level.Add(0);
-                Iteration.Add(0);
+                GraphList.Add(new VertexNeighborInfo());
+                Level.Add(default);
+                Iteration.Add(default);
             }
         }
 
-        public void AddEdge(int from, int to, int cap)
+        public bool AddEdge(int from, int to, int cap)
         {
-            GraphList[from].Add(new OrEdge(to, cap, GraphList[to].Count));
-            GraphList[to].Add(new OrEdge(from, 0, GraphList[from].Count - 1));
+            if (GraphList.Count <= from || GraphList.Count <= to) return false;
+            GraphList[from].Add(new OrEdge(to, cap, GraphList[to].NumberOfNeighbors));
+            GraphList[to].Add(new OrEdge(from, default, GraphList[from].NumberOfNeighbors - 1));
+            return true;
         }
 
-        public int MaxFlow(int s, int t)
+        public int MaxFlow(int source, int sink)
         {
-            int flow = 0;
+            int maxFlow = default;
             while (true)
             {
-                BFS(s);
-                if (Level[t] < 0)
+                BFS(source);
+                if (Level[sink] < 0)
                 {
-                    return flow;
+                    return maxFlow;
                 }
-                for (int i = 0; i < VertexNum; ++i)
+                for (int i = default; i < GraphList.Count; ++i)
                 {
-                    Iteration[i] = 0;
+                    Iteration[i] = default;
                 }
-                var f = DFS(s, t, int.MaxValue);
-                while (f > 0) 
+                int dfsResult = DFS(source, sink, int.MaxValue);
+                while (dfsResult > 0) 
                 {
-                    flow += f;
-                    f = DFS(s, t, int.MaxValue);
+                    maxFlow += dfsResult;
+                    dfsResult = DFS(source, sink, int.MaxValue);
                 }
             }
         }
-        void BFS(int s)
+        void BFS(int start)
         {
-            for (int i = 0; i < VertexNum; ++i)
+            for (int i = default; i < GraphList.Count; ++i)
             {
                 Level[i] = -1;
             }
                 
-            Level[s] = 0;
-            var que = new Queue<int>();
-            que.Enqueue(s);
+            Level[start] = default;
+            Queue<int> queue = new Queue<int>();
+            queue.Enqueue(start);
 
-            while (que.Count != 0)
+            while (queue.Count != default)
             {
-                var v = que.Dequeue();
-                for (int i = 0; i < GraphList[v].Count; i++)
+                int v = queue.Dequeue();
+                for (int i = default; i < GraphList[v].NumberOfNeighbors; i++)
                 {
-                    var e = GraphList[v][i];
-                    if (e.Capacity > 0 && Level[e.To] < 0)
+                    OrEdge edge = GraphList[v][i];
+                    if (edge.Capacity > 0 && Level[edge.To] < 0)
                     {
-                        Level[e.To] = Level[v] + 1;
-                        que.Enqueue(e.To);
+                        Level[edge.To] = Level[v] + 1;
+                        queue.Enqueue(edge.To);
                     }
 
                 }
@@ -85,26 +85,24 @@ namespace GraphsTask3
         }
         int DFS(int v, int t, int f)
         {
-            if (v == t) 
-            {
-                return f;
-            }
-            for (int i = Iteration[v]; i < GraphList[v].Count; i++)
+            if (v == t) return f;
+
+            for (int i = Iteration[v]; i < GraphList[v].NumberOfNeighbors; i++)
             {
                 Iteration[v] = i;
-                var e = GraphList[v][i];
-                if (e.Capacity > 0 && Level[v] < Level[e.To])
+                OrEdge edge = GraphList[v][i];
+                if (edge.Capacity > 0 && Level[v] < Level[edge.To])
                 {
-                    var d = DFS(e.To, t, Math.Min(f, e.Capacity));
-                    if (d > 0)
+                    int dfsResult = DFS(edge.To, t, Math.Min(f, edge.Capacity));
+                    if (dfsResult > 0)
                     {
-                        e.Capacity -= d;
-                        GraphList[e.To][e.Opposite].Capacity += d;
-                        return d;
+                        edge.Capacity -= dfsResult;
+                        GraphList[edge.To][edge.Opposite].Capacity += dfsResult;
+                        return dfsResult;
                     }
                 }
             }
-            return 0;
+            return default;
         }
     }
 

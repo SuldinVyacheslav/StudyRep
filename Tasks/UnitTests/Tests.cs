@@ -40,7 +40,7 @@ namespace UnitTests
 
             List<string> resultAlphabet = new List<string>() { "1011", "010", "1100", "1110", "00", "100" };
             List<char> charSet = new List<char>() { 'a', 'b', 'c', 'd', 'e', 'f' };
-            
+
 
             for (int i = 0; i < shannon.alphabet.Power; i++)
             {
@@ -67,7 +67,7 @@ namespace UnitTests
             {
                 Assert.AreEqual(resultAlphabet[i], shannonFano.alphabet[charSet[i]]);
             }
-           
+
         }
 
         [Test]
@@ -94,7 +94,7 @@ namespace UnitTests
                 Assert.AreEqual(resultAlphabet[i], huffman.alphabet[charSet[i]]);
             }
 
-            
+
         }
 
         [Test]
@@ -215,7 +215,7 @@ namespace UnitTests
             Graph test3 = mbn.GetSpanningTree(new Graph(new List<Vertex>()));
             Assert.AreEqual(0, test3.Edges.Count);
 
-            Graph test4 = mbn.GetSpanningTree(new Graph(new List<Vertex>() { A } ));
+            Graph test4 = mbn.GetSpanningTree(new Graph(new List<Vertex>() { A }));
             Assert.AreEqual(0, test4.Edges.Count);
             Assert.AreEqual(1, test4.Vertexes.Count);
         }
@@ -258,8 +258,68 @@ namespace UnitTests
             { 0, 0, 0, 7, 0, 4 },   { 0, 0, 0, 0, 0, 0 }
             };
             FordFulkerson ff = new FordFulkerson();
-            int sdf = ff.GetMinFlow(graph, 0, 5);
-            Assert.AreEqual(23, sdf);
+            int flow = ff.GetMaxFlow(graph, 0, 5);
+            Assert.AreEqual(23, flow);
+
+            int[,] taskGraph = new int[,]
+            {
+                //, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15  - 0
+                {0, 0, 0, 0, 8, 1, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0},
+                //, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15  - 1
+                {0, 0, 6, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                //, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15  - 2
+                {0, 0, 0, 3, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                //, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15  - 3
+                {0, 0, 0, 0, 4, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0},
+                //, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15  - 4
+                {0, 0, 0, 0, 0, 3, 0, 0, 5, 10, 0, 0, 0, 0, 0, 0},
+                //, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15  - 5
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0},
+                //, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15  - 6
+                {0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0},
+                //, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15  - 7
+                {0, 0, 0, 0, 10, 0, 8, 0, 0, 0, 0,  5, 0, 0, 0, 0},
+                //, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15  - 8
+                {0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0,   0,  5, 12, 0,  0},
+                //, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15  - 9
+                {0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0,   0, 0,   7, 0, 0},
+                //, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15  - 10
+                {0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, 6, 0},
+                //, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15  - 11
+                {0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 8,  0,  0,  0,  9, 0},
+                //, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15  - 12
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,   8, 0, 0, 0, 7},
+                //, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15  - 13
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,   0, 7, 0, 0, 6},
+                //, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15  - 14
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                //, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15  - 15
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            };
+
+            //https://skr.sh/sE67Js14hDW
+            Assert.AreEqual(15, ff.GetMaxFlow(taskGraph, 0, 14));
+            //https://skr.sh/sE6Re8KVjxo
+            Assert.AreEqual(13, ff.GetMaxFlow(taskGraph, 0, 15));
+            //https://skr.sh/sE6idvZScxy
+            Assert.AreEqual(12, ff.GetMaxFlow(taskGraph, 1, 14));
+            //https://skr.sh/sE67JRg240U
+            Assert.AreEqual(12, ff.GetMaxFlow(taskGraph, 1, 15));
+        }
+
+        [Test]
+        public void VertexNeighborInfoTest()
+        {
+            VertexNeighborInfo testInfo = new VertexNeighborInfo();
+            OrEdge edgeA = new OrEdge(10, 0, 1);
+            OrEdge edgeB = new OrEdge(10, 1, 2);
+            Assert.That(testInfo.NumberOfNeighbors == 0);
+            Assert.That(testInfo.Add(edgeA));
+            Assert.That(testInfo.NumberOfNeighbors == 1);
+            Assert.That(!testInfo.Add(edgeA));
+            Assert.That(testInfo.NumberOfNeighbors == 1);
+            Assert.That(testInfo.Add(edgeB));
+            Assert.That(testInfo.NumberOfNeighbors == 2);
         }
 
         [Test]
@@ -270,8 +330,7 @@ namespace UnitTests
             d.AddEdge(0, 2, 10);
             d.AddEdge(1, 3, 10);
             d.AddEdge(2, 3, 10);
-            int sad = d.MaxFlow(0, 3);
-            Assert.AreEqual(20, sad);
+            Assert.AreEqual(20, d.MaxFlow(0, 3));
         }
 
         [Test]

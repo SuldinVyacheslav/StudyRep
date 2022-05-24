@@ -9,50 +9,49 @@ namespace GraphsTask3
 {
     public class ScalingFlow
     {
-        public List<OrEdge>[] GraphList;
-        public int Source;
-        public int Sink;
-        public bool[] Marked;
+        public List<VertexNeighborInfo> GraphList;
+        public int Source, Sink;
+        public bool[] Visited;
         public int Delta;
 
         public ScalingFlow(int vertexes)
         {
-            GraphList = new List<OrEdge>[vertexes];
-            for (int i = 0; i< GraphList.Length; i++)
+            GraphList = new List<VertexNeighborInfo>();
+            for (int i = default; i< vertexes; i++)
             {
-                GraphList[i] = new List<OrEdge>();
+                GraphList.Add(new VertexNeighborInfo());
             }
         }
-        public void AddEdge(int from, int to, int cap)
+        public bool AddEdge(int from, int to, int cap)
         {
-            OrEdge fromEdge = new OrEdge(from, to, cap, 0);
-            OrEdge toEdge = new OrEdge(to, from, 0, 0);
-            GraphList[from].Add(fromEdge);
-            GraphList[to].Add(toEdge);
+            if (GraphList.Count <= from || GraphList.Count <= to) return false;
+            GraphList[from].Add(new OrEdge(from, to, cap, default));
+            GraphList[to].Add(new OrEdge(to, from, default, default));
+            return true;
         }
-        public int GetMaxFlow(int s, int t)
+        public int GetMaxFlow(int source, int sink)
         {
-            Marked = new bool[GraphList.Length];
-            Source = s;
-            Sink = t;
-            int flow = 0;
+            Visited = new bool[GraphList.Count];
+            Source = source;
+            Sink = sink;
+            int maxFlow = default;
 
-            Delta = (int)Math.Pow(2, (int)(Math.Log2(GraphList.Where(z => z.Count != 0).Max(x => x.Max(y => y.Capacity)))));
+            Delta = (int)Math.Pow(2, (int)(Math.Log2(GraphList.Where(z => z.NumberOfNeighbors != default).Max(x => x.Neighbors.Max(y => y.Capacity)))));
 
-            for (int f = 0; Delta > 0; Delta /= 2)
+            for (int flow = default; Delta > 0; Delta /= 2)
             {
                 do
                 {
-                    for (int i = 0; i < Marked.Length; i++)
+                    for (int i = default; i < Visited.Length; i++)
                     {
-                        Marked[i] = false;
+                        Visited[i] = false;
                     }
-                    f = DFS(Source, int.MaxValue);
-                    flow += f;
+                    flow = DFS(Source, int.MaxValue);
+                    maxFlow += flow;
                 }
-                while (f != 0);
+                while (flow != default);
             }
-            return flow;
+            return maxFlow;
         }
         public int DFS(int node, int flow)
         {
@@ -60,13 +59,13 @@ namespace GraphsTask3
             {
                 return flow;
             }
-            List<OrEdge> edges = GraphList[node];
-            Marked[node] = true;
 
-            foreach (OrEdge edge in edges)
+            Visited[node] = true;
+
+            foreach (OrEdge edge in GraphList[node].Neighbors)
             {
                 int remainingCapacity = edge.Capacity - edge.FlowValue;
-                if (remainingCapacity >= Delta && !Marked[edge.To])
+                if (remainingCapacity >= Delta && !Visited[edge.To])
                 {
                     int min = DFS(edge.To, Math.Min(flow, remainingCapacity));
                         
@@ -77,7 +76,7 @@ namespace GraphsTask3
                     }
                 }
             }
-            return 0;
+            return default;
         }
     }
 }
