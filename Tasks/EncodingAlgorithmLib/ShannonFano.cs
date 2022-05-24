@@ -10,10 +10,10 @@ namespace EncodingAlgorithmLib
     {
         public char[] Message;
 
-        public Dictionary<char, string> Dict;
+        public Alphabet<char, string> alphabet;
         public ShannonFano(char[] message)
         {
-            Dict = new Dictionary<char, string>();
+            alphabet = new Alphabet<char, string>();
             this.Message = message;
         }
 
@@ -30,13 +30,13 @@ namespace EncodingAlgorithmLib
 
             foreach (var search in root.Value)
             {
-                Dict.Add(search.Sign, root.Search(search));
+                alphabet.Add(search.Sign, root.Search(search));
             }
 
             string result = string.Empty;
             foreach (char sign in Message)
             {
-                result += Dict[sign];
+                result += alphabet[sign];
             }
 
             return result.ToCharArray();

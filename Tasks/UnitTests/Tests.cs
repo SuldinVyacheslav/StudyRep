@@ -15,6 +15,21 @@ namespace UnitTests
         {
         }
 
+
+        [Test]
+
+        public void AlphabetTest()
+        {
+            Alphabet<string, int> testAlphabet = new Alphabet<string, int>();
+            Assert.That(testAlphabet.Power == 0);
+            testAlphabet.Add("test", 100);
+            Assert.That(!testAlphabet.ContainsSymbol("test1"));
+            Assert.That(testAlphabet.ContainsSymbol("test"));
+            Assert.AreEqual(100, testAlphabet["test"]);
+            testAlphabet.Add("", -123123);
+            Assert.That(testAlphabet.ContainsSymbol(""));
+            Assert.AreEqual(-123123, testAlphabet[""]);
+        }
         [Test]
         public void ShannonTest()
         {
@@ -22,17 +37,16 @@ namespace UnitTests
             char[] result = "10111011010010010010110011001110111000000000000000100100100".ToCharArray();
             Shannon shannon = new Shannon(messege.ToCharArray());
             Assert.AreEqual(result, shannon.Encode());
-            Assert.AreEqual(new Dictionary<char, string>()
-            {
-                {'a',"1011" },
-                {'b',"010" },
-                {'c',"1100" },
-                {'d',"1110"},
-                {'e',"00"},
-                {'f',"100"},
 
+            List<string> resultAlphabet = new List<string>() { "1011", "010", "1100", "1110", "00", "100" };
+            List<char> charSet = new List<char>() { 'a', 'b', 'c', 'd', 'e', 'f' };
+            
+
+            for (int i = 0; i < shannon.alphabet.Power; i++)
+            {
+                Assert.AreEqual(resultAlphabet[i], shannon.alphabet[charSet[i]]);
             }
-            , shannon.Dict);
+
         }
 
 
@@ -43,18 +57,17 @@ namespace UnitTests
             char[] result = "0101010000000010010010110111011011101111".ToCharArray();
             ShannonFano shannonFano = new ShannonFano(messege.ToCharArray());
             Assert.AreEqual(result, shannonFano.Encode());
-            Assert.AreEqual(new Dictionary<char, string>()
-            {
-                {'b',"01" },
-                {'e',"00" },
-                {' ',"100"},
-                {'o',"101"},
-                {'p',"110"},
-                {'!',"1110"},
-                {'r',"1111"},
 
+
+            List<string> resultAlphabet = new List<string>() { "01", "00", "100", "101", "110", "1110", "1111" };
+            List<char> charSet = new List<char>() { 'b', 'e', ' ', 'o', 'p', '!', 'r' };
+
+
+            for (int i = 0; i < shannonFano.alphabet.Power; i++)
+            {
+                Assert.AreEqual(resultAlphabet[i], shannonFano.alphabet[charSet[i]]);
             }
-            , shannonFano.Dict);
+           
         }
 
         [Test]
@@ -71,18 +84,17 @@ namespace UnitTests
             string messege = "bbbeeee  oopp!r";
             Huffman huffman = new Huffman(messege.ToCharArray());
             Assert.AreEqual("0000001111111101101101001010110110011000", huffman.Encode());
-            Assert.AreEqual(new Dictionary<char, string>()
-            {
-                {'b',"00" },
-                {'e',"11" },
-                {' ',"011"},
-                {'o',"010"},
-                {'p',"101"},
-                {'!',"1001"},
-                {'r',"1000"},
 
+            List<string> resultAlphabet = new List<string>() { "00", "11", "011", "010", "101", "1001", "1000" };
+            List<char> charSet = new List<char>() { 'b', 'e', ' ', 'o', 'p', '!', 'r' };
+
+
+            for (int i = 0; i < huffman.alphabet.Power; i++)
+            {
+                Assert.AreEqual(resultAlphabet[i], huffman.alphabet[charSet[i]]);
             }
-            , huffman.Dict);
+
+            
         }
 
         [Test]

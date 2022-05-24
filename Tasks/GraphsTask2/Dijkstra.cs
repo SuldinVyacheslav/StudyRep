@@ -33,14 +33,8 @@ namespace GraphsTask2
                 {
                     if (edge.Value < minEdge.Value) minEdge = edge;
 
-                    if (edge.Y == key)
-                    {
-                        dict[edge.X] = Math.Min(edge.Value + dict[edge.Y], dict[edge.X]);
-                    }
-                    else
-                    {
-                        dict[edge.Y] = Math.Min(edge.Value + dict[edge.X], dict[edge.Y]);
-                    }
+                    dict[key == edge.Y ? edge.X : edge.Y] = Math.Min(edge.Value + dict[key == edge.Y ? edge.Y : edge.X],
+                                                                        dict[key == edge.Y ? edge.X : edge.Y]);
 
                 }
                 marked.Add(key);

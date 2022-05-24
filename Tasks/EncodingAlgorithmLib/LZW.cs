@@ -12,11 +12,11 @@ namespace EncodingAlgorithmLib
 
         public char EOF;
 
-        public Dictionary<string, int> Dict;
+        public Alphabet<string, int> alphabet;
         public LZW(char[] message)
         {
             EOF = message.Last();
-            Dict = new Dictionary<string, int>();
+            alphabet = new Alphabet<string, int>();
             this.Message = message;
         }
 
@@ -25,26 +25,26 @@ namespace EncodingAlgorithmLib
             string result = string.Empty;
 
             for (int i = 0; i < 256; i++)
-                Dict.Add(((char)i).ToString(), i);
+                alphabet.Add(((char)i).ToString(), i);
 
             string w = string.Empty;
 
             foreach (char c in Message)
             {
                 string wc = w + c;
-                if (Dict.ContainsKey(wc))
+                if (alphabet.ContainsSymbol(wc))
                 {
                     w = wc;
                 }
                 else
                 {
-                    result += Dict[w];
-                    Dict.Add(wc, Dict.Count);
+                    result += alphabet[w];
+                    alphabet.Add(wc, alphabet.Power);
                     w = c.ToString();
                 }
             }
             if (!string.IsNullOrEmpty(w))
-                result += Dict[w];
+                result += alphabet[w];
 
             return result;
         }

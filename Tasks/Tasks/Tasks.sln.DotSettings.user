@@ -7,7 +7,12 @@
     &lt;TestId&gt;NUnit3x::4081BA87-3FA7-40C2-A795-FAAF1DA966DF::net5.0::UnitTests.Tests.ShannonTest&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=a4d15adc_002Ddbd4_002D4a0f_002D8d0e_002Deb626b200299/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="BottleneckTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=89b16c35_002D2b84_002D4361_002Db85c_002Dff21613feffa/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="ShannonTest #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::4081BA87-3FA7-40C2-A795-FAAF1DA966DF::net5.0::UnitTests.Tests&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=a4d15adc_002Ddbd4_002D4a0f_002D8d0e_002Deb626b200299/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="BottleneckTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Project Location="C:\Users\suldi\StudyStuff\Repository\StudyRep\Tasks\UnitTests" Presentation="&amp;lt;UnitTests&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f1e37299_002D776f_002D4911_002D821d_002Dcf04ab7f4aa1/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="ShannonTest #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;

@@ -10,36 +10,36 @@ namespace EncodingAlgorithmLib
     {
         public char[] Message;
 
-        public Dictionary<char, string> Dict;
+        public Alphabet<char, string> alphabet;
         public Huffman(char[] messege)
         {
-            Dict = new Dictionary<char, string>();
+            alphabet = new Alphabet<char, string>();
             this.Message = messege;
         }
 
         public char[] Encode()
         {
 
-            MakeDict();
+            SetAlphabet();
 
             string result = string.Empty;
             foreach (char sign in Message)
             {
-                result += Dict[sign];
+                result += alphabet[sign];
             }
 
             return result.ToCharArray();
         }
 
-        public Dictionary<char, string> MakeDict()
+        public Alphabet<char, string> SetAlphabet()
         {
 
             Queue queue = new Queue(GetStartNodes(Message));
 
             if (queue.Elements.Count == 1)
             {
-                Dict[queue.Elements.First().Chars.First().Sign] = "0";
-                return Dict;
+                alphabet[queue.Elements.First().Chars.First().Sign] = "0";
+                return alphabet;
             }
             while (queue.Elements.Count != 1)
             {
@@ -48,17 +48,17 @@ namespace EncodingAlgorithmLib
 
             foreach (Char ch in queue.Elements[0].Chars)
             {
-                if (Dict.Keys.Contains(ch.Sign))
+                if (alphabet.ContainsSymbol(ch.Sign))
                 {
-                    Dict[ch.Sign] = queue.Elements[0].Search(ch);
+                    alphabet[ch.Sign] = queue.Elements[0].Search(ch);
                 }
                 else
                 {
-                    Dict.Add(ch.Sign, queue.Elements[0].Search(ch));
+                    alphabet.Add(ch.Sign, queue.Elements[0].Search(ch));
                 }
             }
 
-            return Dict;
+            return alphabet;
         }
         public List<Node> GetStartNodes(char[] messege)
         {

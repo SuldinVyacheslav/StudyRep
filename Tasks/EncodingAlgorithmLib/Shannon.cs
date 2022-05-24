@@ -11,10 +11,10 @@ namespace EncodingAlgorithmLib
     {
         public char[] Message;
 
-        public Dictionary<char, string> Dict;
+        public Alphabet<char, string> alphabet;
         public Shannon(char[] message)
         {
-            Dict = new Dictionary<char, string>();
+            alphabet = new Alphabet<char,string>();
             this.Message = message;
         }
         public char[] Encode()
@@ -27,13 +27,13 @@ namespace EncodingAlgorithmLib
                 if (i >= 1) prob[i].SumValue = prob[i - 1].SumValue + prob[i - 1].Value;
                 int lenght = (int)Math.Round(-Math.Log(prob[i].Value, 2), 0, MidpointRounding.ToPositiveInfinity);
                 prob[i].Bin = String.Join("", ToBin(prob[i].SumValue, 10).ToCharArray()[..lenght]);
-                Dict.Add(prob[i].Sign, prob[i].Bin);
+                alphabet.Add(prob[i].Sign, prob[i].Bin);
             }
 
             string result = string.Empty;
             foreach (char sign in Message)
             {
-                result += Dict[sign];
+                result += alphabet[sign];
             }
 
             return result.ToCharArray();

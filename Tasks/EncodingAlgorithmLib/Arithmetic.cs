@@ -81,9 +81,6 @@ namespace EncodingAlgorithmLib
     {
         public double End;
         public double Start;
-
-
-
         public double Percent;
         public Section(double start, double end)
         {
