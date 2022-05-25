@@ -4,7 +4,7 @@ on:
     branches:
       - master
       - DiscreteBranch
-      
+
 jobs:
   tests:
     name: Unit Testing
