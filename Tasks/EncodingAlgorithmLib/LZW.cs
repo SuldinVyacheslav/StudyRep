@@ -8,28 +8,27 @@ namespace EncodingAlgorithmLib
 {
     public class LZW
     {
-        public char[] Message;
-
-        public char EOF;
+        char[] message;
 
         public Alphabet<string, int> alphabet;
         public LZW(char[] message)
         {
-            EOF = message.Last();
             alphabet = new Alphabet<string, int>();
-            this.Message = message;
+            this.message = message;
         }
 
         public string Encode()
         {
             string result = string.Empty;
 
+            if (message == null || message.Length == 0) return result;
+
             for (int i = 0; i < 256; i++)
                 alphabet.Add(((char)i).ToString(), i);
 
             string w = string.Empty;
 
-            foreach (char c in Message)
+            foreach (char c in message)
             {
                 string wc = w + c;
                 if (alphabet.ContainsSymbol(wc))

@@ -11,7 +11,7 @@ namespace GraphsTask2
     {
         public Dictionary<Vertex, int>  GetMinPath(Graph graph, Vertex vertex)
         {
-            if (!graph.Vertexes.Contains(vertex)) return null;
+            if (graph.Vertexes == null || !graph.Vertexes.Contains(vertex)) return null;
 
             List<Vertex> marked = new List<Vertex>() {};
 

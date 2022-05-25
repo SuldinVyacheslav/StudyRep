@@ -9,8 +9,6 @@ namespace GraphsTask2
 {
     public class Bottleneck
     {
-
-
         public Graph GetSpanningTree(Graph graph)
         {
             if (graph.Vertexes.Count == 0) return new Graph(new List<Edge>());

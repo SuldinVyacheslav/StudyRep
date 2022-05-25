@@ -10,12 +10,24 @@ namespace GraphsTask3
 
     public class EdmondKarp
     {
-        static List<int>[] graph;
-        static int[] parentsList;
-        static List<OrEdge> edges = new List<OrEdge>();
+        List<int>[] graph;
+        int[] parentsList;
+        List<OrEdge> edges = new List<OrEdge>();
+
+        public EdmondKarp(int[,] adjacencyMatrix)
+            : this(adjacencyMatrix.GetLength(0) == adjacencyMatrix.GetLength(1) ? adjacencyMatrix.GetLength(0) : -1)
+        {
+            if (graph == null) return;
+            for (int i = default; i < adjacencyMatrix.GetLength(0); i++)
+                for (int j = default; j < adjacencyMatrix.GetLength(0); j++)
+                    if (adjacencyMatrix[i, j] > 0)
+                        if (!AddEdge(i, j, adjacencyMatrix[i, j])) return;
+        }
 
         public EdmondKarp(int size)
         {
+            if (size < 0) return;
+
             graph = new List<int>[size];
             for (int i = default; i < size; i++)
             {
@@ -61,6 +73,11 @@ namespace GraphsTask3
 
         public int GetMaxFlow(int source, int sink)
         {
+            if (graph == null ||
+                source >= graph.Length || source < 0 ||
+                sink >= graph.Length || sink < 0)
+                return -1;
+
             int maxFlow = default;
             while (true)
             {

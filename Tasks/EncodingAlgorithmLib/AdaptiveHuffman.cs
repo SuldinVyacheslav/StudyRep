@@ -9,19 +9,20 @@ namespace EncodingAlgorithmLib
     
     public class AdaptiveHuffman
     {
-        public char[] message;
+        char[] message;
 
         Alphabet<char, string> alphabet;
-
-        
         public AdaptiveHuffman(char[] message)
         {
             alphabet = new Alphabet<char, string>();
             this.message = message;
         }
 
-        public string Encode()
+        public char[] Encode()
         {
+
+            if (message == null || message.Length == 0) return Array.Empty<char>();
+
             string result = string.Empty;
 
             Huffman huff = new Huffman(message);
@@ -34,7 +35,7 @@ namespace EncodingAlgorithmLib
                 result += alphabet[message[i - 1]];
             }
 
-            return result;
+            return result.ToCharArray();
         }
     }
 }

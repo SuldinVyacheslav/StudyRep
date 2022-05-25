@@ -9,25 +9,28 @@ namespace EncodingAlgorithmLib
     
     public class Arithmetic
     {
-        public char[] Message;
+        char[] message;
 
-        Dictionary<char, Section> Sections = new Dictionary<char, Section>();
+        Dictionary<char, Section> sections = new Dictionary<char, Section>();
         public Arithmetic(char[] message)
         {
-            this.Message = message;
-            SetSections(message);
+            this.message = message;
+            if (message!= null) SetSections(message);
         }
 
         public string Encode()
         {
+
+            if (message == null || message.Length == 0) return string.Empty;
+
             string result = string.Empty;
-            foreach (char sign in Message[..^1])
+            foreach (char sign in message[..^1])
             {
-                RefreshSections(Sections[sign].Start, Sections[sign].End);
+                RefreshSections(sections[sign].Start, sections[sign].End);
             }
 
-            int rounded1 = (int)Math.Round(Sections[Message[^1]].End);
-            int rounded2 = (int)Math.Round(Sections[Message[^1]].Start);
+            int rounded1 = (int)Math.Round(sections[message[^1]].End);
+            int rounded2 = (int)Math.Round(sections[message[^1]].Start);
             int num = (int)Math.Pow(10, (rounded1 - rounded2).ToString().Length - 1);
             
             return (((rounded2 - rounded2 % num) / num + 1)).ToString();
@@ -36,7 +39,7 @@ namespace EncodingAlgorithmLib
 
         public void RefreshSections(double start, double end)
         {
-            Section[] sect = Sections.Values.ToArray();
+            Section[] sect = sections.Values.ToArray();
 
             sect[0].Start = start;
             sect[0].End = sect[0].Start + (end - start) * sect[0].Percent;
@@ -69,9 +72,9 @@ namespace EncodingAlgorithmLib
             dict = dict.OrderBy(x => -x.Value).ToDictionary(x => x.Key, x => x.Value);
             foreach (char x in dict.Keys)
             {
-                Sections.Add(x, new Section(
-                    Sections.Count == 0 ? 0 : Sections.Last().Value.End,
-                    Sections.Count == dict.Count ? 100000000 : Sections.Count == 0 ? dict[x] * 100000000 / messege.Length : Sections.Last().Value.End + dict[x] * 100000000 / messege.Length
+                sections.Add(x, new Section(
+                    sections.Count == 0 ? 0 : sections.Last().Value.End,
+                    sections.Count == dict.Count ? 100000000 : sections.Count == 0 ? dict[x] * 100000000 / messege.Length : sections.Last().Value.End + dict[x] * 100000000 / messege.Length
                     ));
             }
         }

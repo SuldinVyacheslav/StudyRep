@@ -6,23 +6,42 @@ namespace GraphLibrary
 {
     public class Graph
     {
-        static int num = 0;
-        public int number;
         public List<Edge> Edges;
 
         public List<Vertex> Vertexes;
         public Graph(List<Vertex> vertexes)
         {
-            num++;
-            number = num;
             Edges = new List<Edge>();
             Vertexes = new List<Vertex>(vertexes);
         }
 
+        public Graph(int[,] adjacencyMatrix)
+        {
+            if (adjacencyMatrix.GetLength(0) != adjacencyMatrix.GetLength(1)) return;
+
+            Vertexes = new List<Vertex>();
+            Edges = new List<Edge>();
+
+            for (int i = default; i < adjacencyMatrix.GetLength(0); i++)
+            {
+                Vertexes.Add(new Vertex(i.ToString()));
+            }
+
+            for (int i = default; i < adjacencyMatrix.GetLength(0); i++)
+            {
+                for (int j = default; j < i; j++)
+                {
+                    if (adjacencyMatrix[i, j] > 0)
+                    {
+                        Edges.Add(new Edge(adjacencyMatrix[i, j], Vertexes[i], Vertexes[j]));
+                    }
+                }
+
+            }
+           
+        }
         public Graph(List<Edge> edges)
         {
-            num++;
-            number = num;
             Edges = new List<Edge>();
             Vertexes = new List<Vertex>();
 

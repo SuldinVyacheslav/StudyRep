@@ -9,17 +9,17 @@ namespace EncodingAlgorithmLib
 {
     public class Shannon
     {
-        public char[] Message;
+        char[] message;
 
         public Alphabet<char, string> alphabet;
         public Shannon(char[] message)
         {
             alphabet = new Alphabet<char,string>();
-            this.Message = message;
+            this.message = message == null? Array.Empty<char>() : message;
         }
         public char[] Encode()
         {
-            CharInfo[] prob = GetInformation(Message);
+            CharInfo[] prob = GetInformation(message);
             Array.Sort(prob, (CharInfo x, CharInfo y ) => (x.Value >= y.Value ? (x.Value > y.Value? -1 : 0 ): 1));
 
             for (int i = 0; i < prob.Length; i++)
@@ -31,7 +31,7 @@ namespace EncodingAlgorithmLib
             }
 
             string result = string.Empty;
-            foreach (char sign in Message)
+            foreach (char sign in message)
             {
                 result += alphabet[sign];
             }
