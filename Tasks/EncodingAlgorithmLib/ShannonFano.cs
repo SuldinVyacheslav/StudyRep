@@ -8,18 +8,21 @@ namespace EncodingAlgorithmLib
 {
     public class ShannonFano
     {
-        public char[] Message;
+        char[] message;
 
-        public Dictionary<char, string> Dict;
+        public Alphabet<char, string> alphabet;
         public ShannonFano(char[] message)
         {
-            Dict = new Dictionary<char, string>();
-            this.Message = message;
+            alphabet = new Alphabet<char, string>();
+            this.message = message;
         }
 
         public char[] Encode()
         {
-            CharInfo[] sumInfo = GetMessage(Message);
+
+            if (message == null || message.Length == 0) return Array.Empty<char>();
+
+            CharInfo[] sumInfo = GetMessage(message);
             Array.Sort(sumInfo, (CharInfo x, CharInfo y) => (x.Value >= y.Value ? (x.Value > y.Value ? -1 : 0) : 1));
             foreach (CharInfo info in sumInfo)
             {
@@ -30,13 +33,13 @@ namespace EncodingAlgorithmLib
 
             foreach (var search in root.Value)
             {
-                Dict.Add(search.Sign, root.Search(search));
+                alphabet.Add(search.Sign, root.Search(search));
             }
 
             string result = string.Empty;
-            foreach (char sign in Message)
+            foreach (char sign in message)
             {
-                result += Dict[sign];
+                result += alphabet[sign];
             }
 
             return result.ToCharArray();

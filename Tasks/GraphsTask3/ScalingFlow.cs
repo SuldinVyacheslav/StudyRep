@@ -9,64 +9,77 @@ namespace GraphsTask3
 {
     public class ScalingFlow
     {
-        public List<OrEdge>[] GraphList;
-        public int Source;
-        public int Sink;
-        public bool[] Marked;
-        public int Delta;
+        List<VertexNeighborInfo> graphList;
+        int source, sink;
+        bool[] visited;
+        int delta;
 
-        public ScalingFlow(int vertexes)
+        public ScalingFlow(int[,] adjacencyMatrix)
+            : this(adjacencyMatrix.GetLength(0) == adjacencyMatrix.GetLength(1) ? adjacencyMatrix.GetLength(0) : -1)
         {
-            GraphList = new List<OrEdge>[vertexes];
-            for (int i = 0; i< GraphList.Length; i++)
+            if (graphList == null) return;
+            for (int i = default; i < adjacencyMatrix.GetLength(0); i++)
+                for (int j = default; j < adjacencyMatrix.GetLength(0); j++)
+                    if (adjacencyMatrix[i, j] > 0)
+                        if (!AddEdge(i, j, adjacencyMatrix[i, j])) return;
+        }
+        public ScalingFlow(int size)
+        {
+            if (size < 0) return;
+            visited = new bool[size];
+            graphList = new List<VertexNeighborInfo>();
+            for (int i = default; i< size; i++)
             {
-                GraphList[i] = new List<OrEdge>();
+                graphList.Add(new VertexNeighborInfo());
             }
         }
-        public void AddEdge(int from, int to, int cap)
+        public bool AddEdge(int from, int to, int cap)
         {
-            OrEdge fromEdge = new OrEdge(from, to, cap, 0);
-            OrEdge toEdge = new OrEdge(to, from, 0, 0);
-            GraphList[from].Add(fromEdge);
-            GraphList[to].Add(toEdge);
+            if (graphList.Count <= from || graphList.Count <= to) return false;
+            graphList[from].Add(new OrEdge(from, to, cap, default));
+            graphList[to].Add(new OrEdge(to, from, default, default));
+            return true;
         }
-        public int GetMaxFlow(int s, int t)
+        public int GetMaxFlow(int source, int sink)
         {
-            Marked = new bool[GraphList.Length];
-            Source = s;
-            Sink = t;
-            int flow = 0;
+            if (graphList == null ||
+                source >= graphList.Count || source < 0 ||
+                sink >= graphList.Count || sink < 0)
+                return -1;
 
-            Delta = (int)Math.Pow(2, (int)(Math.Log2(GraphList.Where(z => z.Count != 0).Max(x => x.Max(y => y.Capacity)))));
+            visited = new bool[graphList.Count];
+            this.source = source;
+            this.sink = sink;
+            int maxFlow = default;
 
-            for (int f = 0; Delta > 0; Delta /= 2)
+            delta = (int)Math.Pow(2, (int)(Math.Log2(graphList.Where(z => z.NumberOfNeighbors != default).Max(x => x.Neighbors.Max(y => y.Capacity)))));
+
+            for (int flow = default; delta > 0; delta /= 2)
             {
                 do
                 {
-                    for (int i = 0; i < Marked.Length; i++)
-                    {
-                        Marked[i] = false;
-                    }
-                    f = DFS(Source, int.MaxValue);
-                    flow += f;
+                    
+                    visited = Enumerable.Repeat(false, visited.Length).ToArray();
+                    flow = DFS(this.source, int.MaxValue);
+                    maxFlow += flow;
                 }
-                while (f != 0);
+                while (flow != default);
             }
-            return flow;
+            return maxFlow;
         }
         public int DFS(int node, int flow)
         {
-            if (node == Sink)
+            if (node == sink)
             {
                 return flow;
             }
-            List<OrEdge> edges = GraphList[node];
-            Marked[node] = true;
 
-            foreach (OrEdge edge in edges)
+            visited[node] = true;
+
+            foreach (OrEdge edge in graphList[node].Neighbors)
             {
                 int remainingCapacity = edge.Capacity - edge.FlowValue;
-                if (remainingCapacity >= Delta && !Marked[edge.To])
+                if (remainingCapacity >= delta && !visited[edge.To])
                 {
                     int min = DFS(edge.To, Math.Min(flow, remainingCapacity));
                         
@@ -77,7 +90,7 @@ namespace GraphsTask3
                     }
                 }
             }
-            return 0;
+            return default;
         }
     }
 }

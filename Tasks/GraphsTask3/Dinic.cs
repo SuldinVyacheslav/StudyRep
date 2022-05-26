@@ -9,73 +9,86 @@ namespace GraphsTask3
 {
     public class Dinic
     {
-        public List<List<OrEdge>> GraphList;
-        public int VertexNum;
-        public List<int> Level, Iteration;
+        List<VertexNeighborInfo> graphList;
+        List<int> layer, pointer;
 
-        public Dinic(int vertexes)
+        public Dinic(int[,] adjacencyMatrix) 
+            : this(adjacencyMatrix.GetLength(0) == adjacencyMatrix.GetLength(1) ? adjacencyMatrix.GetLength(0)  : -1)
         {
-            VertexNum = vertexes;
-            GraphList = new List<List<OrEdge>>();
-            Level = new List<int>();
-            Iteration = new List<int>();
-            for (int i = 0; i < VertexNum; ++i)
+            if (graphList == null) return;
+            for (int i = default; i < adjacencyMatrix.GetLength(0); i++)
+                for (int j = default; j < adjacencyMatrix.GetLength(0); j++)
+                    if (adjacencyMatrix[i, j] > 0)
+                        if (!AddEdge(i, j, adjacencyMatrix[i, j])) return;
+        }
+        public Dinic(int size)
+        {
+            if (size < 0) return;
+            
+            graphList = new List<VertexNeighborInfo>();
+            layer = new List<int>();
+            pointer = new List<int>();
+            for (int i = default; i < size; ++i)
             {
-                GraphList.Add(new List<OrEdge>());
-                Level.Add(0);
-                Iteration.Add(0);
+                graphList.Add(new VertexNeighborInfo());
+                layer.Add(default);
+                pointer.Add(default);
             }
         }
 
-        public void AddEdge(int from, int to, int cap)
+        public bool AddEdge(int from, int to, int cap)
         {
-            GraphList[from].Add(new OrEdge(to, cap, GraphList[to].Count));
-            GraphList[to].Add(new OrEdge(from, 0, GraphList[from].Count - 1));
+            if (graphList.Count <= from || graphList.Count <= to) return false;
+            graphList[from].Add(new OrEdge(to, cap, graphList[to].NumberOfNeighbors));
+            graphList[to].Add(new OrEdge(from, default, graphList[from].NumberOfNeighbors - 1));
+            return true;
         }
 
-        public int MaxFlow(int s, int t)
+        public int MaxFlow(int source, int sink)
         {
-            int flow = 0;
+            if (graphList == null || 
+                source >= graphList.Count || source < 0 ||
+                sink >= graphList.Count || sink < 0)
+                return -1;
+
+            int maxFlow = default;
             while (true)
             {
-                BFS(s);
-                if (Level[t] < 0)
+                BFS(source);
+                if (layer[sink] < 0)
                 {
-                    return flow;
+                    return maxFlow;
                 }
-                for (int i = 0; i < VertexNum; ++i)
-                {
-                    Iteration[i] = 0;
-                }
-                var f = DFS(s, t, int.MaxValue);
-                while (f > 0) 
-                {
-                    flow += f;
-                    f = DFS(s, t, int.MaxValue);
-                }
-            }
-        }
-        void BFS(int s)
-        {
-            for (int i = 0; i < VertexNum; ++i)
-            {
-                Level[i] = -1;
-            }
+
+                pointer = Enumerable.Repeat((int)default, graphList.Count).ToList();
                 
-            Level[s] = 0;
-            var que = new Queue<int>();
-            que.Enqueue(s);
-
-            while (que.Count != 0)
-            {
-                var v = que.Dequeue();
-                for (int i = 0; i < GraphList[v].Count; i++)
+                int dfsResult = DFS(source, sink, int.MaxValue);
+                while (dfsResult > 0) 
                 {
-                    var e = GraphList[v][i];
-                    if (e.Capacity > 0 && Level[e.To] < 0)
+                    maxFlow += dfsResult;
+                    dfsResult = DFS(source, sink, int.MaxValue);
+                }
+            }
+        }
+        public void BFS(int start)
+        {
+
+            layer = Enumerable.Repeat( -1, graphList.Count).ToList();
+                
+            layer[start] = default;
+            Queue<int> queue = new Queue<int>();
+            queue.Enqueue(start);
+
+            while (queue.Count != default)
+            {
+                int v = queue.Dequeue();
+                for (int i = default; i < graphList[v].NumberOfNeighbors; i++)
+                {
+                    OrEdge edge = graphList[v][i];
+                    if (edge.Capacity > 0 && layer[edge.To] < 0)
                     {
-                        Level[e.To] = Level[v] + 1;
-                        que.Enqueue(e.To);
+                        layer[edge.To] = layer[v] + 1;
+                        queue.Enqueue(edge.To);
                     }
 
                 }
@@ -83,28 +96,26 @@ namespace GraphsTask3
             }
 
         }
-        int DFS(int v, int t, int f)
+        public int DFS(int v, int t, int f)
         {
-            if (v == t) 
+            if (v == t) return f;
+
+            for (int i = pointer[v]; i < graphList[v].NumberOfNeighbors; i++)
             {
-                return f;
-            }
-            for (int i = Iteration[v]; i < GraphList[v].Count; i++)
-            {
-                Iteration[v] = i;
-                var e = GraphList[v][i];
-                if (e.Capacity > 0 && Level[v] < Level[e.To])
+                pointer[v] = i;
+                OrEdge edge = graphList[v][i];
+                if (edge.Capacity > 0 && layer[v] < layer[edge.To])
                 {
-                    var d = DFS(e.To, t, Math.Min(f, e.Capacity));
-                    if (d > 0)
+                    int dfsResult = DFS(edge.To, t, Math.Min(f, edge.Capacity));
+                    if (dfsResult > 0)
                     {
-                        e.Capacity -= d;
-                        GraphList[e.To][e.Opposite].Capacity += d;
-                        return d;
+                        edge.Capacity -= dfsResult;
+                        graphList[edge.To][edge.Opposite].Capacity += dfsResult;
+                        return dfsResult;
                     }
                 }
             }
-            return 0;
+            return default;
         }
     }
 

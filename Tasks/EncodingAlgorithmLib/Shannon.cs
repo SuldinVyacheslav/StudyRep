@@ -9,17 +9,17 @@ namespace EncodingAlgorithmLib
 {
     public class Shannon
     {
-        public char[] Message;
+        char[] message;
 
-        public Dictionary<char, string> Dict;
+        public Alphabet<char, string> alphabet;
         public Shannon(char[] message)
         {
-            Dict = new Dictionary<char, string>();
-            this.Message = message;
+            alphabet = new Alphabet<char,string>();
+            this.message = message == null? Array.Empty<char>() : message;
         }
         public char[] Encode()
         {
-            CharInfo[] prob = GetInformation(Message);
+            CharInfo[] prob = GetInformation(message);
             Array.Sort(prob, (CharInfo x, CharInfo y ) => (x.Value >= y.Value ? (x.Value > y.Value? -1 : 0 ): 1));
 
             for (int i = 0; i < prob.Length; i++)
@@ -27,13 +27,13 @@ namespace EncodingAlgorithmLib
                 if (i >= 1) prob[i].SumValue = prob[i - 1].SumValue + prob[i - 1].Value;
                 int lenght = (int)Math.Round(-Math.Log(prob[i].Value, 2), 0, MidpointRounding.ToPositiveInfinity);
                 prob[i].Bin = String.Join("", ToBin(prob[i].SumValue, 10).ToCharArray()[..lenght]);
-                Dict.Add(prob[i].Sign, prob[i].Bin);
+                alphabet.Add(prob[i].Sign, prob[i].Bin);
             }
 
             string result = string.Empty;
-            foreach (char sign in Message)
+            foreach (char sign in message)
             {
-                result += Dict[sign];
+                result += alphabet[sign];
             }
 
             return result.ToCharArray();

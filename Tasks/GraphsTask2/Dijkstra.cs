@@ -11,7 +11,7 @@ namespace GraphsTask2
     {
         public Dictionary<Vertex, int>  GetMinPath(Graph graph, Vertex vertex)
         {
-            if (!graph.Vertexes.Contains(vertex)) return null;
+            if (graph.Vertexes == null || !graph.Vertexes.Contains(vertex)) return null;
 
             List<Vertex> marked = new List<Vertex>() {};
 
@@ -33,14 +33,8 @@ namespace GraphsTask2
                 {
                     if (edge.Value < minEdge.Value) minEdge = edge;
 
-                    if (edge.Y == key)
-                    {
-                        dict[edge.X] = Math.Min(edge.Value + dict[edge.Y], dict[edge.X]);
-                    }
-                    else
-                    {
-                        dict[edge.Y] = Math.Min(edge.Value + dict[edge.X], dict[edge.Y]);
-                    }
+                    dict[key == edge.Y ? edge.X : edge.Y] = Math.Min(edge.Value + dict[key == edge.Y ? edge.Y : edge.X],
+                                                                        dict[key == edge.Y ? edge.X : edge.Y]);
 
                 }
                 marked.Add(key);

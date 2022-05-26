@@ -9,74 +9,79 @@ namespace GraphsTask3
 {
     public class FordFulkerson
     {
-        public int GraphLenght;
-        public bool BFS(int[,] residualNet, int s, int t, int[] path)
+        int graphLenght;
+
+        public bool DFS(int[,] residualNet, int source, int sink, int[] path)
         {
-            bool[] visited = new bool[residualNet.Length];
-            for (int i = 0; i < residualNet.Length; ++i)
-                visited[i] = false;
+            bool[] visited = Enumerable.Repeat(false, residualNet.GetLength(0)).ToArray();
 
-            Queue<int> queue = new Queue<int>();
-            queue.Enqueue(s);
-            visited[s] = true;
-            path[s] = -1;
+            Stack<int> vertexStack = new Stack<int>();
+            vertexStack.Push(source);
 
-            while (queue.Count != 0)
+            while (vertexStack.Count > 0)
             {
-                int u = queue.Dequeue();
+                int vertex = vertexStack.Pop();
 
-                for (int v = 0; v < GraphLenght; v++)
+                if (visited[vertex])
+                    continue;
+
+                visited[vertex] = true;
+                path[source] = -1;
+                for (int neighbour = default; neighbour < residualNet.GetLength(0); neighbour++)
                 {
-                    if (visited[v] == false && residualNet[u, v] > 0)
+                    if (residualNet[vertex, neighbour] > 0 && visited[neighbour] == false)
                     {
-                        if (v == t)
+                        if (neighbour == sink)
                         {
-                            path[v] = u;
+                            path[neighbour] = vertex;
                             return true;
                         }
-                        queue.Enqueue(v);
-                        path[v] = u;
-                        visited[v] = true;
+                        path[neighbour] = vertex;
+                        vertexStack.Push(neighbour);
                     }
                 }
             }
-
             return false;
         }
-        public int GetMinFlow(int[,] graph, int s, int t)
+        public int GetMaxFlow(int[,] graph, int source, int sink)
         {
-            GraphLenght = graph.GetLength(0);
+            if (graph.GetLength(0) != graph.GetLength(1) ||
+                source >= graph.GetLength(0) || source < 0 ||
+                sink >= graph.GetLength(0) || sink < 0 ) 
+                return -1;
+
+            graphLenght = graph.GetLength(default);
 
             int u, v;
             
-            int[,] residualNet = new int[GraphLenght, GraphLenght];
+            int[,] residualNet = new int[graphLenght, graphLenght];
 
-            for (u = 0; u < GraphLenght; u++)
-                for (v = 0; v < GraphLenght; v++)
+            for (u = default; u < graphLenght; u++)
+                for (v = default; v < graphLenght; v++)
                     residualNet[u, v] = graph[u, v];
 
-            int[] path = new int[GraphLenght];
+            int[] path = new int[graphLenght];
 
-            int maxFlow = 0;
+            int maxFlow = default;
 
-            while (BFS(residualNet, s, t, path))
+            while (DFS(residualNet, source, sink, path))
             {
-                int PathFlow = int.MaxValue;
-                for (v = t; v != s; v = path[v])
+                int minPathFlow = int.MaxValue;
+                for (v = sink; v != source; v = path[v])
                 {
                     u = path[v];
-                    PathFlow = Math.Min(PathFlow, residualNet[u, v]);
+                    minPathFlow = Math.Min(minPathFlow, residualNet[u, v]);
                 }
 
                 
-                for (v = t; v != s; v = path[v])
+                for (v = sink; v != source; v = path[v])
                 {
                     u = path[v];
-                    residualNet[u, v] -= PathFlow;
-                    residualNet[v, u] += PathFlow;
+                    residualNet[u, v] -= minPathFlow;
+                    residualNet[v, u] += minPathFlow;
                 }
 
-                maxFlow += PathFlow;
+                maxFlow += minPathFlow;
             }
 
             return maxFlow;

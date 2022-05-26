@@ -1,5 +1,30 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=491e9a49_002D4e9b_002D4292_002Da287_002Dbaa1b5b1d8cf/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="ScalingFlowTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=06e505af_002D37be_002D4f1f_002Da38e_002D915ac1151053/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="PrimTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Project Location="C:\Users\suldi\StudyStuff\Repository\StudyRep\Tasks\UnitTests" Presentation="&amp;lt;UnitTests&amp;gt;" /&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=330535c5_002D6b72_002D4e7d_002Da37f_002D53ba37588bb8/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="DinicTest #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::4081BA87-3FA7-40C2-A795-FAAF1DA966DF::net5.0::UnitTests.Tests.DinicTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=474217ec_002Deaeb_002D4ad5_002D8c71_002D97816744bbe6/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="HuffmanTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::4081BA87-3FA7-40C2-A795-FAAF1DA966DF::net5.0::UnitTests.Tests.HuffmanTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::4081BA87-3FA7-40C2-A795-FAAF1DA966DF::net5.0::UnitTests.Tests.ShannonFanoTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::4081BA87-3FA7-40C2-A795-FAAF1DA966DF::net5.0::UnitTests.Tests.LZWTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::4081BA87-3FA7-40C2-A795-FAAF1DA966DF::net5.0::UnitTests.Tests.AdaptiveHuffmanTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::4081BA87-3FA7-40C2-A795-FAAF1DA966DF::net5.0::UnitTests.Tests.ArithmeticTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=491e9a49_002D4e9b_002D4292_002Da287_002Dbaa1b5b1d8cf/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="ScalingFlowTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Project Location="C:\Users\suldi\StudyStuff\Repository\StudyRep\Tasks\UnitTests" Presentation="&amp;lt;UnitTests&amp;gt;" /&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=589c0145_002D621d_002D4f11_002D8f24_002D2e1426804659/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="ArithmeticTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::4081BA87-3FA7-40C2-A795-FAAF1DA966DF::net5.0::UnitTests.Tests.ArithmeticTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=58e996e4_002Daac8_002D4482_002Dafab_002D0dc2e543b4b1/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="FordFulkersonTest #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Project Location="C:\Users\suldi\StudyStuff\Repository\StudyRep\Tasks\UnitTests" Presentation="&amp;lt;UnitTests&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=8280d8ff_002D69e3_002D49e1_002D8d52_002D16d83547315a/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="ShannonTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
@@ -7,6 +32,36 @@
     &lt;TestId&gt;NUnit3x::4081BA87-3FA7-40C2-A795-FAAF1DA966DF::net5.0::UnitTests.Tests.ShannonTest&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=857fc1d4_002Da83f_002D4b30_002Dae08_002D15b92bffd268/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="ArithmeticTest #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::4081BA87-3FA7-40C2-A795-FAAF1DA966DF::net5.0::UnitTests.Tests.ArithmeticTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::4081BA87-3FA7-40C2-A795-FAAF1DA966DF::net5.0::UnitTests.Tests.PrimTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=89b16c35_002D2b84_002D4361_002Db85c_002Dff21613feffa/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="ShannonTest #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::4081BA87-3FA7-40C2-A795-FAAF1DA966DF::net5.0::UnitTests.Tests&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=a4d15adc_002Ddbd4_002D4a0f_002D8d0e_002Deb626b200299/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="BottleneckTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Project Location="C:\Users\suldi\StudyStuff\Repository\StudyRep\Tasks\UnitTests" Presentation="&amp;lt;UnitTests&amp;gt;" /&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=cbd72ebb_002De97d_002D4b59_002D8553_002Df4f7eca7b79c/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="FordFulkersonTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::4081BA87-3FA7-40C2-A795-FAAF1DA966DF::net5.0::UnitTests.Tests.FordFulkersonTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=ed07ab04_002D871d_002D4d8a_002Da5fa_002D7f77b31ae738/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="DinicTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::4081BA87-3FA7-40C2-A795-FAAF1DA966DF::net5.0::UnitTests.Tests.DinicTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f1e37299_002D776f_002D4911_002D821d_002Dcf04ab7f4aa1/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="ShannonTest #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;ProjectFile&gt;4081BA87-3FA7-40C2-A795-FAAF1DA966DF/f:Tests.cs&lt;/ProjectFile&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f5aac209_002D4c33_002D4659_002Dbd17_002Df127ecfbd29d/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="DinicTest #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;ProjectFile&gt;4081BA87-3FA7-40C2-A795-FAAF1DA966DF/f:Tests.cs&lt;/ProjectFile&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f60dfe1c_002D6543_002D4f91_002D85af_002D5001034e1749/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="ShannonFanoTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;ProjectFile&gt;4081BA87-3FA7-40C2-A795-FAAF1DA966DF/f:Tests.cs&lt;/ProjectFile&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
